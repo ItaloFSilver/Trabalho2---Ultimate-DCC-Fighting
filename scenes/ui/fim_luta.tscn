@@ -1,0 +1,155 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/fim_luta.gd" id="1_fim"]
+[ext_resource type="Theme" path="res://assets/ui/tema_ui.tres" id="2_tema"]
+[ext_resource type="Texture2D" path="res://assets/ui/fim_luta/fundo_portaria.png" id="3_fundo"]
+[ext_resource type="Script" path="res://scripts/ui/botao_com_seta.gd" id="4_botao"]
+[ext_resource type="Texture2D" path="res://assets/ui/seta.png" id="5_seta"]
+
+[sub_resource type="Animation" id="Animation_reset"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mensagem:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [40.0]
+}
+
+[sub_resource type="Animation" id="Animation_respirar"]
+resource_name = "respirar"
+length = 1.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Mensagem:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.8),
+"transitions": PackedFloat32Array(-2, -2, 1),
+"update": 0,
+"values": [40.0, 44.0, 40.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fim"]
+_data = {
+&"RESET": SubResource("Animation_reset"),
+&"respirar": SubResource("Animation_respirar")
+}
+
+[node name="FimLuta" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_tema")
+script = ExtResource("1_fim")
+
+[node name="Fundo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_fundo")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Mensagem" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -520.0
+offset_top = 40.0
+offset_right = 520.0
+offset_bottom = 200.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/separation = 16
+
+[node name="Jogador" type="Label" parent="Mensagem"]
+layout_mode = 2
+theme_type_variation = &"TituloJogador"
+text = "PLAYER 1"
+horizontal_alignment = 1
+
+[node name="Reprovou" type="Label" parent="Mensagem"]
+layout_mode = 2
+theme_type_variation = &"TituloReprovou"
+text = "REPROVOU"
+horizontal_alignment = 1
+
+[node name="Opcoes" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 400.0
+offset_right = 300.0
+offset_bottom = 602.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/separation = -22
+
+[node name="Revanche" type="Button" parent="Opcoes"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../Menu")
+focus_neighbor_bottom = NodePath("../Menu")
+theme_type_variation = &"BotaoMenu"
+text = "REVANCHE"
+script = ExtResource("4_botao")
+
+[node name="Seta" type="TextureRect" parent="Opcoes/Revanche"]
+visible = false
+layout_mode = 0
+offset_left = -50.0
+offset_top = 35.0
+offset_right = -22.0
+offset_bottom = 84.0
+mouse_filter = 2
+texture = ExtResource("5_seta")
+expand_mode = 1
+
+[node name="Menu" type="Button" parent="Opcoes"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../Revanche")
+focus_neighbor_bottom = NodePath("../Revanche")
+theme_type_variation = &"BotaoMenu"
+text = "MENU"
+script = ExtResource("4_botao")
+
+[node name="Seta" type="TextureRect" parent="Opcoes/Menu"]
+visible = false
+layout_mode = 0
+offset_left = -50.0
+offset_top = 35.0
+offset_right = -22.0
+offset_bottom = 84.0
+mouse_filter = 2
+texture = ExtResource("5_seta")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_fim")
+}
+autoplay = &"respirar"
+
+[connection signal="pressed" from="Opcoes/Revanche" to="." method="_on_revanche_pressed"]
+[connection signal="pressed" from="Opcoes/Menu" to="." method="_on_menu_pressed"]

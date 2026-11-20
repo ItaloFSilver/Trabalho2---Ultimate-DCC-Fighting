@@ -1,0 +1,176 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/menu_principal.gd" id="1_menu"]
+[ext_resource type="Theme" path="res://assets/ui/tema_ui.tres" id="2_tema"]
+[ext_resource type="Texture2D" path="res://assets/ui/menu/fundo_ice.png" id="3_fundo"]
+[ext_resource type="Script" path="res://scripts/ui/botao_com_seta.gd" id="4_botao"]
+[ext_resource type="Texture2D" path="res://assets/ui/seta.png" id="5_seta"]
+
+[sub_resource type="Animation" id="Animation_reset"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Titulo:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [45.0]
+}
+
+[sub_resource type="Animation" id="Animation_respirar"]
+resource_name = "respirar"
+length = 1.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Titulo:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.9, 1.8),
+"transitions": PackedFloat32Array(-2, -2, 1),
+"update": 0,
+"values": [45.0, 49.0, 45.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_menu"]
+_data = {
+&"RESET": SubResource("Animation_reset"),
+&"respirar": SubResource("Animation_respirar")
+}
+
+[node name="MenuPrincipal" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_tema")
+script = ExtResource("1_menu")
+
+[node name="Fundo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_fundo")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Titulo" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -520.0
+offset_top = 45.0
+offset_right = 520.0
+offset_bottom = 202.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/separation = 13
+
+[node name="Ultimate" type="Label" parent="Titulo"]
+layout_mode = 2
+theme_type_variation = &"TituloUltimate"
+text = "ULTIMATE"
+horizontal_alignment = 1
+
+[node name="DCCFighting" type="Label" parent="Titulo"]
+layout_mode = 2
+theme_type_variation = &"TituloDCC"
+text = "DCC FIGHTING"
+horizontal_alignment = 1
+
+[node name="Opcoes" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 348.0
+offset_right = 300.0
+offset_bottom = 640.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/separation = -22
+
+[node name="Jogar" type="Button" parent="Opcoes"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../Sair")
+focus_neighbor_bottom = NodePath("../Creditos")
+theme_type_variation = &"BotaoMenu"
+text = "JOGAR"
+script = ExtResource("4_botao")
+
+[node name="Seta" type="TextureRect" parent="Opcoes/Jogar"]
+visible = false
+layout_mode = 0
+offset_left = -50.0
+offset_top = 35.0
+offset_right = -22.0
+offset_bottom = 84.0
+mouse_filter = 2
+texture = ExtResource("5_seta")
+expand_mode = 1
+
+[node name="Creditos" type="Button" parent="Opcoes"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../Jogar")
+focus_neighbor_bottom = NodePath("../Sair")
+theme_type_variation = &"BotaoMenu"
+text = "CRÉDITOS"
+script = ExtResource("4_botao")
+
+[node name="Seta" type="TextureRect" parent="Opcoes/Creditos"]
+visible = false
+layout_mode = 0
+offset_left = -50.0
+offset_top = 35.0
+offset_right = -22.0
+offset_bottom = 84.0
+mouse_filter = 2
+texture = ExtResource("5_seta")
+expand_mode = 1
+
+[node name="Sair" type="Button" parent="Opcoes"]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../Creditos")
+focus_neighbor_bottom = NodePath("../Jogar")
+theme_type_variation = &"BotaoMenu"
+text = "SAIR"
+script = ExtResource("4_botao")
+
+[node name="Seta" type="TextureRect" parent="Opcoes/Sair"]
+visible = false
+layout_mode = 0
+offset_left = -50.0
+offset_top = 35.0
+offset_right = -22.0
+offset_bottom = 84.0
+mouse_filter = 2
+texture = ExtResource("5_seta")
+expand_mode = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_menu")
+}
+autoplay = &"respirar"
+
+[connection signal="pressed" from="Opcoes/Jogar" to="." method="_on_jogar_pressed"]
+[connection signal="pressed" from="Opcoes/Creditos" to="." method="_on_creditos_pressed"]
+[connection signal="pressed" from="Opcoes/Sair" to="." method="_on_sair_pressed"]

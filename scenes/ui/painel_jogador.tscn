@@ -1,0 +1,55 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/painel_jogador.gd" id="1_painel"]
+
+[node name="PainelJogador" type="PanelContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(208, 400)
+offset_right = 208.0
+offset_bottom = 400.0
+mouse_filter = 2
+theme_type_variation = &"PainelP1"
+script = ExtResource("1_painel")
+
+[node name="Conteudo" type="VBoxContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 14
+
+[node name="Jogador" type="Label" parent="Conteudo"]
+layout_mode = 2
+theme_type_variation = &"JogadorP1"
+text = "PLAYER 1"
+horizontal_alignment = 1
+
+[node name="Centro" type="CenterContainer" parent="Conteudo"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Moldura" type="PanelContainer" parent="Conteudo/Centro"]
+custom_minimum_size = Vector2(140, 170)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"Moldura"
+
+[node name="CentroRetrato" type="CenterContainer" parent="Conteudo/Centro/Moldura"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Retrato" type="TextureRect" parent="Conteudo/Centro/Moldura/CentroRetrato"]
+custom_minimum_size = Vector2(96, 140)
+layout_mode = 2
+mouse_filter = 2
+expand_mode = 1
+
+[node name="Nome" type="Label" parent="Conteudo"]
+layout_mode = 2
+theme_type_variation = &"NomePrevia"
+text = "-"
+horizontal_alignment = 1
+
+[node name="Status" type="Label" parent="Conteudo"]
+layout_mode = 2
+theme_type_variation = &"StatusEscolhendo"
+text = "escolhendo..."
+horizontal_alignment = 1

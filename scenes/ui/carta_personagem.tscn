@@ -1,0 +1,61 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/carta_personagem.gd" id="1_carta"]
+
+[node name="CartaPersonagem" type="Button"]
+texture_filter = 1
+custom_minimum_size = Vector2(140, 200)
+offset_right = 140.0
+offset_bottom = 200.0
+theme_type_variation = &"CartaP1"
+script = ExtResource("1_carta")
+
+[node name="Retrato" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 22.0
+offset_top = 0.0
+offset_right = 118.0
+offset_bottom = 140.0
+mouse_filter = 2
+expand_mode = 1
+
+[node name="Nome" type="Label" parent="."]
+layout_mode = 0
+offset_top = 146.0
+offset_right = 140.0
+offset_bottom = 178.0
+theme_type_variation = &"NomeCarta"
+text = "Gleiph"
+horizontal_alignment = 1
+
+[node name="EtiquetaP1" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 50.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_type_variation = &"EtiquetaP1"
+
+[node name="Texto" type="Label" parent="EtiquetaP1"]
+layout_mode = 2
+theme_type_variation = &"EtiquetaTexto"
+text = "P1"
+horizontal_alignment = 1
+
+[node name="EtiquetaP2" type="PanelContainer" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 90.0
+offset_top = 8.0
+offset_right = 132.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_type_variation = &"EtiquetaP2"
+
+[node name="Texto" type="Label" parent="EtiquetaP2"]
+layout_mode = 2
+theme_type_variation = &"EtiquetaTexto"
+text = "P2"
+horizontal_alignment = 1

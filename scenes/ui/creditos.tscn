@@ -1,0 +1,179 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvmr230sx4f0n"]
+
+[ext_resource type="Script" path="res://scripts/ui/creditos.gd" id="1_creditos"]
+[ext_resource type="Theme" path="res://assets/ui/tema_ui.tres" id="2_tema"]
+[ext_resource type="Texture2D" path="res://assets/ui/menu/fundo_ice.png" id="3_fundo"]
+[ext_resource type="Script" path="res://scripts/ui/botao_com_seta.gd" id="4_botao"]
+[ext_resource type="Texture2D" path="res://assets/ui/seta.png" id="5_seta"]
+
+[node name="Creditos" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_tema")
+script = ExtResource("1_creditos")
+
+[node name="Fundo" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_fundo")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Escurecer" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.024, 0.02, 0.063, 0.59)
+
+[node name="Titulo" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 6.0
+offset_right = 400.0
+offset_bottom = 118.0
+grow_horizontal = 2
+theme_type_variation = &"TituloTela"
+text = "CRÉDITOS"
+horizontal_alignment = 1
+
+[node name="Caixa" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -533.0
+offset_top = 122.0
+offset_right = 533.0
+offset_bottom = 576.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_type_variation = &"PainelCreditos"
+
+[node name="Margem" type="MarginContainer" parent="Caixa"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 20
+
+[node name="Conteudo" type="VBoxContainer" parent="Caixa/Margem"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 36
+alignment = 1
+
+[node name="Colunas" type="HBoxContainer" parent="Caixa/Margem/Conteudo"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Desenvolvimento" type="VBoxContainer" parent="Caixa/Margem/Conteudo/Colunas"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="Cabecalho" type="Label" parent="Caixa/Margem/Conteudo/Colunas/Desenvolvimento"]
+layout_mode = 2
+theme_type_variation = &"Cabecalho"
+text = "DESENVOLVIMENTO"
+horizontal_alignment = 1
+
+[node name="Nomes" type="Label" parent="Caixa/Margem/Conteudo/Colunas/Desenvolvimento"]
+layout_mode = 2
+theme_type_variation = &"Nomes"
+text = "Gustavo Bersan
+Nina Aguiar
+Ítalo Fagundes
+Arthur Marques"
+horizontal_alignment = 1
+
+[node name="Separador" type="VSeparator" parent="Caixa/Margem/Conteudo/Colunas"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Agradecimentos" type="VBoxContainer" parent="Caixa/Margem/Conteudo/Colunas"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="Cabecalho" type="Label" parent="Caixa/Margem/Conteudo/Colunas/Agradecimentos"]
+layout_mode = 2
+theme_type_variation = &"Cabecalho"
+text = "AGRADECIMENTOS"
+horizontal_alignment = 1
+
+[node name="Nomes" type="Label" parent="Caixa/Margem/Conteudo/Colunas/Agradecimentos"]
+layout_mode = 2
+theme_type_variation = &"Nomes"
+text = "Prof. Caniato
+Prof. Gleiph
+Prof. Victor
+Prof. Igor"
+horizontal_alignment = 1
+
+[node name="Recursos" type="VBoxContainer" parent="Caixa/Margem/Conteudo"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+
+[node name="Cabecalho" type="Label" parent="Caixa/Margem/Conteudo/Recursos"]
+layout_mode = 2
+theme_type_variation = &"Cabecalho"
+text = "RECURSOS DE TERCEIROS"
+horizontal_alignment = 1
+
+[node name="Nomes" type="Label" parent="Caixa/Margem/Conteudo/Recursos"]
+layout_mode = 2
+theme_type_variation = &"Nomes"
+text = "Fonte Pixel Operator (CC0)"
+horizontal_alignment = 1
+
+[node name="Voltar" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -184.0
+offset_top = -57.0
+offset_right = -40.0
+offset_bottom = -9.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_type_variation = &"BotaoPequeno"
+text = "VOLTAR"
+script = ExtResource("4_botao")
+
+[node name="Seta" type="TextureRect" parent="Voltar"]
+visible = false
+layout_mode = 0
+offset_left = -24.0
+offset_top = 14.0
+offset_right = -12.0
+offset_bottom = 35.0
+mouse_filter = 2
+texture = ExtResource("5_seta")
+expand_mode = 1
+
+[connection signal="pressed" from="Voltar" to="." method="_on_voltar_pressed"]
