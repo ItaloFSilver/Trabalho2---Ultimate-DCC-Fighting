@@ -41,6 +41,42 @@ tracks/2/keys = {
 "update": 0,
 "values": [Rect2(23.51715, 818.6805, 1374.6323, 385.62958)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitBoxes/Punch/CollisionShape2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5500644]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitBoxes/Punch/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HitBoxes/Kick/CollisionShape2D:disabled")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_38ety"]
 resource_name = "idle"
@@ -96,7 +132,7 @@ tracks/3/keys = {
 }
 tracks/4/type = "value"
 tracks/4/imported = false
-tracks/4/enabled = true
+tracks/4/enabled = false
 tracks/4/path = NodePath("Sprite2D:texture")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
@@ -198,6 +234,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [2]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitBoxes/Kick/CollisionShape2D:disabled")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.26, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
 
 [sub_resource type="Animation" id="Animation_1bj3w"]
 resource_name = "punch"
@@ -237,6 +285,30 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Rect2(57.814575, 1176.66, 743.8666, 385.62958)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HitBoxes/Punch/CollisionShape2D:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-1.5500644]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HitBoxes/Punch/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.26, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
 }
 
 [sub_resource type="Animation" id="Animation_tlqsq"]
@@ -305,6 +377,12 @@ _data = {
 radius = 69.0
 height = 280.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rap2r"]
+height = 60.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_cqex6"]
+height = 68.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ql5yn"]
 radius = 67.0
 height = 292.0
@@ -329,24 +407,6 @@ position = Vector2(-5, 0)
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CapsuleShape2D_m3wds")
 
-[node name="State_Machine" type="Node" parent="." unique_id=940752223]
-
-[node name="Idle" type="Node" parent="State_Machine" unique_id=414351811]
-
-[node name="Walk" type="Node" parent="State_Machine" unique_id=1403076993]
-
-[node name="Jump" type="Node" parent="State_Machine" unique_id=803174859]
-
-[node name="Attack" type="Node" parent="State_Machine" unique_id=1402731601]
-
-[node name="Air_Attack" type="Node" parent="State_Machine" unique_id=318624765]
-
-[node name="Hit" type="Node" parent="State_Machine" unique_id=193526113]
-
-[node name="Air_Hit" type="Node" parent="State_Machine" unique_id=1396714857]
-
-[node name="Dead" type="Node" parent="State_Machine" unique_id=476614824]
-
 [node name="Timers" type="Node" parent="." unique_id=1415624681]
 
 [node name="Combo_Timer" type="Timer" parent="Timers" unique_id=237578920]
@@ -356,10 +416,20 @@ shape = SubResource("CapsuleShape2D_m3wds")
 [node name="Punch" type="Area2D" parent="HitBoxes" unique_id=2112349408]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxes/Punch" unique_id=1296074534]
+position = Vector2(56, 0)
+rotation = -1.5500644
+shape = SubResource("CapsuleShape2D_rap2r")
+disabled = true
 
 [node name="Kick" type="Area2D" parent="HitBoxes" unique_id=1779419204]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxes/Kick" unique_id=1845678059]
+position = Vector2(45, 16)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_cqex6")
+
+[node name="ProjeteisSpawnPoint" type="Marker2D" parent="HitBoxes" unique_id=571208066]
+position = Vector2(111, 0)
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=53125063]
 
