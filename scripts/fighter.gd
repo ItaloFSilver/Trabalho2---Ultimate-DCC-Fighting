@@ -1,6 +1,9 @@
 extends CharacterBody2D
 class_name FighterBase
 
+## Emitido uma vez, quando a vida chega a zero. A arena usa para encerrar a luta.
+signal derrotado(lutador: FighterBase)
+
 # Identificação e Referência do Oponente
 @export var player_prefix: String = "p1_" # Use "p1_" para Player 1 e "p2_" para Player 2
 @export var opponent: Node2D # Arraste o oponente no Inspector ou atribua via código na Arena
@@ -179,6 +182,7 @@ func take_damage(amount: float, knockback: Vector2):
 	if health <= 0:
 		current_state = State.DEAD
 		anim_player.play("die")
+		derrotado.emit(self)
 		return
 
 	is_invincible = true
@@ -200,6 +204,10 @@ func take_damage(amount: float, knockback: Vector2):
 	is_invincible = false
 	if current_state != State.DEAD:
 		current_state = State.IDLE if is_on_floor() else State.JUMP
+
+## 1 para o Player 1, 2 para o Player 2 (a partir do player_prefix).
+func numero_jogador() -> int:
+	return 2 if player_prefix == "p2_" else 1
 
 func add_special_meter(amount: float):
 	special_meter = clamp(special_meter + amount, 0.0, max_special)

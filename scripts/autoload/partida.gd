@@ -4,9 +4,17 @@ extends Node
 ##
 ## Quem preenche:
 ##   - seleção de personagem: personagem_p1 e personagem_p2
-##   - cena da luta, quando a vida de alguém zera:
-##         Partida.vencedor = 1   # ou 2
-##         GerenciadorCenas.trocar_cena("res://scenes/ui/fim_luta.tscn")
+##   - arena (scripts/arena.gd), quando um lutador é derrotado:
+##         Partida.registrar_derrota(numero_do_perdedor)
+
+## Cena de luta de cada personagem, pelo id usado na seleção.
+## Para adicionar um professor: crie a cena herdada de fighter.tscn e acrescente aqui.
+const CENAS_PERSONAGENS := {
+	"caniato": preload("res://scenes/Caniato.tscn"),
+	"gleiph": preload("res://scenes/Gleiph.tscn"),
+	"knop": preload("res://scenes/Knop.tscn"),
+	"stroele": preload("res://scenes/Stroele.tscn"),
+}
 
 var personagem_p1 := ""
 var personagem_p2 := ""
@@ -29,3 +37,8 @@ func reiniciar() -> void:
 	personagem_p1 = ""
 	personagem_p2 = ""
 	vencedor = 0
+
+
+## Guarda o resultado a partir de quem perdeu (1 ou 2).
+func registrar_derrota(jogador_perdedor: int) -> void:
+	vencedor = 2 if jogador_perdedor == 1 else 1

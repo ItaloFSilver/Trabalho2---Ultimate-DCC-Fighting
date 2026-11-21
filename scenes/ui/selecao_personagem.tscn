@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/painel_jogador.tscn" id="7_painel"]
 [ext_resource type="Texture2D" uid="uid://by85emtp1obyc" path="res://assets/ui/selecao/caniato.png" id="r_caniato"]
 [ext_resource type="Texture2D" uid="uid://4cgov0uxrif2" path="res://assets/ui/selecao/gleiph.png" id="r_gleiph"]
-[ext_resource type="Texture2D" uid="uid://c2uq8otmhlgfd" path="res://assets/ui/selecao/igor.png" id="r_igor"]
-[ext_resource type="Texture2D" uid="uid://hpeqjixskw4b" path="res://assets/ui/selecao/victor.png" id="r_victor"]
+[ext_resource type="Texture2D" path="res://assets/ui/selecao/knop.png" id="r_knop"]
+[ext_resource type="Texture2D" path="res://assets/ui/selecao/stroele.png" id="r_stroele"]
 
 [node name="SelecaoPersonagem" type="Control" unique_id=797644934]
 texture_filter = 1
@@ -102,17 +102,17 @@ retrato = ExtResource("r_caniato")
 layout_mode = 2
 retrato = ExtResource("r_gleiph")
 
-[node name="Igor" parent="Cartas" unique_id=1762168760 instance=ExtResource("6_carta")]
+[node name="Knop" parent="Cartas" unique_id=1762168760 instance=ExtResource("6_carta")]
 layout_mode = 2
 id_personagem = "knop"
-nome_exibido = "Igor"
-retrato = ExtResource("r_igor")
+nome_exibido = "Knop"
+retrato = ExtResource("r_knop")
 
-[node name="Victor" parent="Cartas" unique_id=1766087635 instance=ExtResource("6_carta")]
+[node name="Stroele" parent="Cartas" unique_id=1766087635 instance=ExtResource("6_carta")]
 layout_mode = 2
 id_personagem = "stroele"
-nome_exibido = "Victor"
-retrato = ExtResource("r_victor")
+nome_exibido = "Stroele"
+retrato = ExtResource("r_stroele")
 
 [node name="Vez" type="Label" parent="." unique_id=647589883]
 layout_mode = 1
@@ -186,7 +186,7 @@ offset_bottom = -9.0
 grow_horizontal = 0
 grow_vertical = 0
 focus_neighbor_left = NodePath("../Voltar")
-focus_neighbor_top = NodePath("../Cartas/Victor")
+focus_neighbor_top = NodePath("../Cartas/Stroele")
 focus_neighbor_right = NodePath("../Voltar")
 focus_neighbor_bottom = NodePath(".")
 theme_type_variation = &"BotaoPequeno"

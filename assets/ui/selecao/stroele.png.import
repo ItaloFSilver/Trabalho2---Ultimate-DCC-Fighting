@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c2uq8otmhlgfd"
-path="res://.godot/imported/igor.png-27a7ebd64d2bffb07a3a79278c04bcf3.ctex"
+uid="uid://3m3ypyy1cxxc"
+path="res://.godot/imported/stroele.png-89938fe940689f998ede0c8b92e43b4b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/selecao/igor.png"
-dest_files=["res://.godot/imported/igor.png-27a7ebd64d2bffb07a3a79278c04bcf3.ctex"]
+source_file="res://assets/ui/selecao/stroele.png"
+dest_files=["res://.godot/imported/stroele.png-89938fe940689f998ede0c8b92e43b4b.ctex"]
 
 [params]
 
