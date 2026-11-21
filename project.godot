@@ -22,8 +22,11 @@ Partida="*res://scripts/autoload/partida.gd"
 
 [display]
 
+window/size/viewport_width=1376
+window/size/viewport_height=768
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+window/decals/filter=3
 
 [dotnet]
 
@@ -109,3 +112,4 @@ p2_special={
 [rendering]
 
 rendering_device/driver.windows="d3d12"
+textures/decals/filter=0

@@ -42,20 +42,23 @@ func _ready():
 	combo_timer.one_shot = true
 	combo_timer.timeout.connect(_on_combo_timer_timeout)
 
-func _physics_process(delta):
-	if current_state == State.DEAD:
-		return
-
-	# Mantém o lutador sempre de frente para o oponente (só vira quando o oponente pula por cima)
-	if current_state not in [State.HIT, State.AIR_HIT]:
-		update_facing()
-
+func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity.y += gravity * delta
-		if current_state not in [State.ATTACK, State.AIR_ATTACK, State.HIT, State.AIR_HIT]:
+		if current_state not in [State.ATTACK, State.AIR_ATTACK, State.HIT, State.AIR_HIT, State.DEAD]:
 			current_state = State.JUMP
-	elif current_state == State.JUMP and is_on_floor():
+	elif current_state == State.JUMP:
 		current_state = State.IDLE
+
+	if current_state == State.DEAD:
+		if is_on_floor():
+			velocity.x = move_toward(velocity.x, 0, speed * delta * 4)
+		move_and_slide()
+		global_position.x = clamp(global_position.x, 45.0, 1331.0)
+		return
+
+	if current_state not in [State.HIT, State.AIR_HIT]:
+		update_facing()
 
 	match current_state:
 		State.IDLE, State.WALK, State.JUMP:
@@ -69,6 +72,7 @@ func _physics_process(delta):
 				velocity.x = move_toward(velocity.x, 0, speed * delta * 2)
 
 	move_and_slide()
+	global_position.x = clamp(global_position.x, 45.0, 1331.0)
 
 func update_facing():
 	if opponent and is_instance_valid(opponent):
