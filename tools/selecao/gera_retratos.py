@@ -5,7 +5,7 @@ O script volta cada um para a grade original (1 pixel por quadrado), recorta o
 primeiro quadro parado, remove o fundo cinza e limpa as cores.
 
 Uso: python3 tools/selecao/gera_retratos.py   (requer Pillow, numpy e scipy)
-Saída: assets/ui/selecao/<nome>.png
+Saída: assets/ui/selecao/<id>.png
 """
 import os
 from collections import deque
@@ -15,7 +15,8 @@ from scipy import ndimage
 
 AQUI = os.path.dirname(os.path.abspath(__file__))
 SAIDA = os.path.join(AQUI, '..', '..', 'assets', 'ui', 'selecao')
-NOMES = ['caniato', 'gleiph', 'igor', 'victor']
+# (nome do sheet, id do personagem no jogo) — Igor = Knop, Victor = Stroele
+NOMES = [('caniato', 'caniato'), ('gleiph', 'gleiph'), ('igor', 'knop'), ('victor', 'stroele')]
 ESCALA = 1194 / 192            # sheet de 1194 px de largura = 192 px originais
 RECORTE = (10, 5, 41, 50)      # área do 1º quadro (idle) na grade original
 
@@ -81,7 +82,7 @@ def recorta_idle(nativo):
 
 if __name__ == '__main__':
     os.makedirs(SAIDA, exist_ok=True)
-    for nome in NOMES:
-        img = recorta_idle(para_grade_original(os.path.join(AQUI, f'{nome}_sheet.jpg')))
+    for sheet, nome in NOMES:
+        img = recorta_idle(para_grade_original(os.path.join(AQUI, f'{sheet}_sheet.jpg')))
         img.save(os.path.join(SAIDA, f'{nome}.png'))
         print(nome, img.size)

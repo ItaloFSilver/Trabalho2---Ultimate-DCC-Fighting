@@ -12,7 +12,7 @@ const CENA_MENU := "res://scenes/ui/menu_principal.tscn"
 const CENA_LUTA := "res://scenes/main_game.tscn"
 
 @onready var cartas: Array[CartaPersonagem] = [
-	$Cartas/Caniato, $Cartas/Gleiph, $Cartas/Igor, $Cartas/Victor,
+	$Cartas/Caniato, $Cartas/Gleiph, $Cartas/Knop, $Cartas/Stroele,
 ]
 @onready var painel_p1: PainelJogador = $PainelP1
 @onready var painel_p2: PainelJogador = $PainelP2

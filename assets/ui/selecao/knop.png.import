@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hpeqjixskw4b"
-path="res://.godot/imported/victor.png-b3521f571847e5e4118cc3adddd4f719.ctex"
+uid="uid://cqjnd6wuya2tp"
+path="res://.godot/imported/knop.png-9a17714b8bb3cde077a72a2fc60140c6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/selecao/victor.png"
-dest_files=["res://.godot/imported/victor.png-b3521f571847e5e4118cc3adddd4f719.ctex"]
+source_file="res://assets/ui/selecao/knop.png"
+dest_files=["res://.godot/imported/knop.png-9a17714b8bb3cde077a72a2fc60140c6.ctex"]
 
 [params]
 
