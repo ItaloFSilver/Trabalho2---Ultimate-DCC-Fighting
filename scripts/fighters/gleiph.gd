@@ -5,7 +5,7 @@ func _ready():
 	# Balanceamento de atributos do Gleiph
 	max_health = 95.0
 	speed = 245.0
-	jump_force = -430.0
+	jump_force = -600.0
 	base_damage = 9.5
 	special_damage = 24.0
 	

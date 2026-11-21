@@ -6,7 +6,6 @@
 
 [node name="Fighter" unique_id=987594432 instance=ExtResource("1_le0ea")]
 script = ExtResource("2_rt06b")
-jump_force = -400.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=1057599773]
 texture = ExtResource("3_5avde")

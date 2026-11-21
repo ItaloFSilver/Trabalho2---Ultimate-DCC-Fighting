@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c8puetlhd7a6d"]
+
+[ext_resource type="PackedScene" uid="uid://boytdxb44vdiv" path="res://scenes/projetil_base.tscn" id="1_l154f"]
+[ext_resource type="Texture2D" uid="uid://o26ig37i071t" path="res://assets/sprites/specials/java.png" id="2_k0u03"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xunoi"]
+
+[node name="ProjetilBase" unique_id=1746879576 instance=ExtResource("1_l154f")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=451519321]
+position = Vector2(0, 9.536743e-07)
+scale = Vector2(0.104166664, 0.10416668)
+texture = ExtResource("2_k0u03")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1931152200]
+shape = SubResource("CircleShape2D_xunoi")

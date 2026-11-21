@@ -8,7 +8,7 @@ class_name FighterBase
 # Atributos base (balanceáveis individualmente em cada professor)[cite: 1]
 @export var max_health: float = 100.0
 @export var speed: float = 200.0
-@export var jump_force: float = -400.0
+@export var jump_force: float = -600.0
 @export var gravity: float = 980.0 # Atributo próprio para ajustar o peso/queda de cada lutador
 @export var base_damage: float = 10.0
 @export var hit_cooldown: float = 0.3 # Tempo de atordoamento/cooldown ao levar um golpe
@@ -206,7 +206,7 @@ func _on_combo_timer_timeout():
 func execute_special():
 	special_meter = 0.0
 	current_state = State.ATTACK
-	anim_player.play("especial")
+	anim_player.play("special")
 	spawn_projectile()
 	await anim_player.animation_finished
 	if current_state not in [State.HIT, State.AIR_HIT, State.DEAD]:

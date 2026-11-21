@@ -6,22 +6,6 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_botao"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_caixa"]
-bg_color = Color(0.047, 0.04, 0.11, 0.88)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.965, 0.698, 0.157, 1)
-shadow_color = Color(0.04, 0.03, 0.08, 1)
-shadow_size = 4
-anti_aliasing = false
-
-[sub_resource type="StyleBoxLine" id="StyleBoxLine_separador"]
-color = Color(0.353, 0.216, 0.078, 1)
-thickness = 4
-vertical = true
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_carta"]
 bg_color = Color(0.047, 0.04, 0.11, 0.92)
 border_width_left = 4
@@ -29,9 +13,9 @@ border_width_top = 4
 border_width_right = 4
 border_width_bottom = 4
 border_color = Color(0.353, 0.216, 0.078, 1)
-anti_aliasing = false
 shadow_color = Color(0.04, 0.03, 0.08, 1)
 shadow_size = 4
+anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_foco_p1"]
 bg_color = Color(0, 0, 0, 0)
@@ -42,7 +26,6 @@ border_width_bottom = 6
 border_color = Color(0.353, 0.667, 1, 1)
 anti_aliasing = false
 
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_foco_p2"]
 bg_color = Color(0, 0, 0, 0)
 border_width_left = 6
@@ -52,7 +35,6 @@ border_width_bottom = 6
 border_color = Color(0.941, 0.314, 0.275, 1)
 anti_aliasing = false
 
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_foco_pronto"]
 bg_color = Color(0, 0, 0, 0)
 border_width_left = 6
@@ -61,39 +43,6 @@ border_width_right = 6
 border_width_bottom = 6
 border_color = Color(0.965, 0.698, 0.157, 1)
 anti_aliasing = false
-
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_painel_p1"]
-bg_color = Color(0.047, 0.04, 0.11, 0.88)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.353, 0.667, 1, 1)
-anti_aliasing = false
-shadow_color = Color(0.04, 0.03, 0.08, 1)
-shadow_size = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_painel_p2"]
-bg_color = Color(0.047, 0.04, 0.11, 0.88)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.941, 0.314, 0.275, 1)
-anti_aliasing = false
-shadow_color = Color(0.04, 0.03, 0.08, 1)
-shadow_size = 4
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_moldura"]
-bg_color = Color(0.03, 0.025, 0.07, 1)
-border_width_left = 4
-border_width_top = 4
-border_width_right = 4
-border_width_bottom = 4
-border_color = Color(0.353, 0.216, 0.078, 1)
-anti_aliasing = false
-
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_etiqueta_p1"]
 content_margin_left = 6.0
@@ -106,6 +55,53 @@ content_margin_left = 6.0
 content_margin_right = 6.0
 bg_color = Color(0.941, 0.314, 0.275, 1)
 anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_moldura"]
+bg_color = Color(0.03, 0.025, 0.07, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.353, 0.216, 0.078, 1)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_caixa"]
+bg_color = Color(0.047, 0.04, 0.11, 0.88)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.965, 0.698, 0.157, 1)
+shadow_color = Color(0.04, 0.03, 0.08, 1)
+shadow_size = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_painel_p1"]
+bg_color = Color(0.047, 0.04, 0.11, 0.88)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.353, 0.667, 1, 1)
+shadow_color = Color(0.04, 0.03, 0.08, 1)
+shadow_size = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_painel_p2"]
+bg_color = Color(0.047, 0.04, 0.11, 0.88)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.941, 0.314, 0.275, 1)
+shadow_color = Color(0.04, 0.03, 0.08, 1)
+shadow_size = 4
+anti_aliasing = false
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_separador"]
+color = Color(0.353, 0.216, 0.078, 1)
+thickness = 4
+vertical = true
 
 [resource]
 default_font = ExtResource("1_negrito")
@@ -132,15 +128,88 @@ Cabecalho/base_type = &"Label"
 Cabecalho/colors/font_color = Color(1, 0.84, 0.31, 1)
 Cabecalho/colors/font_outline_color = Color(0.04, 0.03, 0.08, 1)
 Cabecalho/constants/outline_size = 6
+CartaP1/base_type = &"Button"
+CartaP1/styles/disabled = SubResource("StyleBoxFlat_carta")
+CartaP1/styles/focus = SubResource("StyleBoxFlat_foco_p1")
+CartaP1/styles/hover = SubResource("StyleBoxFlat_carta")
+CartaP1/styles/normal = SubResource("StyleBoxFlat_carta")
+CartaP1/styles/pressed = SubResource("StyleBoxFlat_carta")
+CartaP2/base_type = &"Button"
+CartaP2/styles/disabled = SubResource("StyleBoxFlat_carta")
+CartaP2/styles/focus = SubResource("StyleBoxFlat_foco_p2")
+CartaP2/styles/hover = SubResource("StyleBoxFlat_carta")
+CartaP2/styles/normal = SubResource("StyleBoxFlat_carta")
+CartaP2/styles/pressed = SubResource("StyleBoxFlat_carta")
+CartaPronto/base_type = &"Button"
+CartaPronto/styles/disabled = SubResource("StyleBoxFlat_carta")
+CartaPronto/styles/focus = SubResource("StyleBoxFlat_foco_pronto")
+CartaPronto/styles/hover = SubResource("StyleBoxFlat_carta")
+CartaPronto/styles/normal = SubResource("StyleBoxFlat_carta")
+CartaPronto/styles/pressed = SubResource("StyleBoxFlat_carta")
+Dica/base_type = &"Label"
+Dica/colors/font_color = Color(0.667, 0.549, 0.275, 1)
+Dica/colors/font_outline_color = Color(0.04, 0.03, 0.08, 1)
+Dica/constants/outline_size = 6
+Dica/font_sizes/font_size = 32
+Dica/fonts/font = ExtResource("2_regular")
+EtiquetaP1/base_type = &"PanelContainer"
+EtiquetaP1/styles/panel = SubResource("StyleBoxFlat_etiqueta_p1")
+EtiquetaP2/base_type = &"PanelContainer"
+EtiquetaP2/styles/panel = SubResource("StyleBoxFlat_etiqueta_p2")
+EtiquetaTexto/base_type = &"Label"
+EtiquetaTexto/colors/font_color = Color(1, 1, 1, 1)
+EtiquetaTexto/font_sizes/font_size = 32
+JogadorP1/base_type = &"Label"
+JogadorP1/colors/font_color = Color(0.353, 0.667, 1, 1)
+JogadorP1/colors/font_outline_color = Color(0.04, 0.03, 0.08, 1)
+JogadorP1/constants/outline_size = 6
+JogadorP1/font_sizes/font_size = 48
+JogadorP2/base_type = &"Label"
+JogadorP2/colors/font_color = Color(0.941, 0.314, 0.275, 1)
+JogadorP2/colors/font_outline_color = Color(0.04, 0.03, 0.08, 1)
+JogadorP2/constants/outline_size = 6
+JogadorP2/font_sizes/font_size = 48
 Label/colors/font_color = Color(0.91, 0.886, 0.824, 1)
 Label/colors/font_outline_color = Color(0.04, 0.03, 0.08, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 0)
 Label/constants/outline_size = 0
+Moldura/base_type = &"PanelContainer"
+Moldura/styles/panel = SubResource("StyleBoxFlat_moldura")
+NomeCarta/base_type = &"Label"
+NomeCarta/colors/font_color = Color(0.91, 0.886, 0.824, 1)
+NomeCarta/colors/font_outline_color = Color(0.04, 0.03, 0.08, 1)
+NomeCarta/constants/outline_size = 6
+NomeCarta/font_sizes/font_size = 32
+NomePersonagem/base_type = &"Label"
+NomePersonagem/colors/font_color = Color(0.91, 0.886, 0.824, 1)
+NomePersonagem/colors/font_outline_color = Color(0.04, 0.03, 0.08, 1)
+NomePersonagem/constants/outline_size = 6
+NomePersonagem/font_sizes/font_size = 48
+NomePrevia/base_type = &"Label"
+NomePrevia/colors/font_color = Color(0.667, 0.549, 0.275, 1)
+NomePrevia/colors/font_outline_color = Color(0.04, 0.03, 0.08, 1)
+NomePrevia/constants/outline_size = 6
+NomePrevia/font_sizes/font_size = 48
 Nomes/base_type = &"Label"
 Nomes/constants/line_spacing = 2
 Nomes/fonts/font = ExtResource("2_regular")
 PainelCreditos/base_type = &"PanelContainer"
 PainelCreditos/styles/panel = SubResource("StyleBoxFlat_caixa")
+PainelP1/base_type = &"PanelContainer"
+PainelP1/styles/panel = SubResource("StyleBoxFlat_painel_p1")
+PainelP2/base_type = &"PanelContainer"
+PainelP2/styles/panel = SubResource("StyleBoxFlat_painel_p2")
+StatusEscolhendo/base_type = &"Label"
+StatusEscolhendo/colors/font_color = Color(0.667, 0.549, 0.275, 1)
+StatusEscolhendo/colors/font_outline_color = Color(0.04, 0.03, 0.08, 1)
+StatusEscolhendo/constants/outline_size = 6
+StatusEscolhendo/font_sizes/font_size = 32
+StatusEscolhendo/fonts/font = ExtResource("2_regular")
+StatusPronto/base_type = &"Label"
+StatusPronto/colors/font_color = Color(0.47, 0.9, 0.47, 1)
+StatusPronto/colors/font_outline_color = Color(0.04, 0.03, 0.08, 1)
+StatusPronto/constants/outline_size = 6
+StatusPronto/font_sizes/font_size = 32
 TituloDCC/base_type = &"Label"
 TituloDCC/colors/font_color = Color(1, 0.84, 0.31, 1)
 TituloDCC/colors/font_shadow_color = Color(0.588, 0.275, 0.039, 1)
@@ -150,6 +219,34 @@ TituloDCC/constants/shadow_offset_y = 7
 TituloDCC/constants/shadow_outline_size = 8
 TituloDCC/font_sizes/font_size = 88
 TituloDCC/fonts/font = ExtResource("3_titulo")
+TituloJogador/base_type = &"Label"
+TituloJogador/colors/font_color = Color(1, 0.84, 0.31, 1)
+TituloJogador/colors/font_shadow_color = Color(0.588, 0.275, 0.039, 1)
+TituloJogador/constants/outline_size = 8
+TituloJogador/constants/shadow_offset_x = 7
+TituloJogador/constants/shadow_offset_y = 7
+TituloJogador/constants/shadow_outline_size = 8
+TituloJogador/font_sizes/font_size = 56
+TituloJogador/fonts/font = ExtResource("3_titulo")
+TituloReprovou/base_type = &"Label"
+TituloReprovou/colors/font_color = Color(0.9, 0.275, 0.235, 1)
+TituloReprovou/colors/font_shadow_color = Color(0.588, 0.275, 0.039, 1)
+TituloReprovou/constants/outline_size = 8
+TituloReprovou/constants/shadow_offset_x = 7
+TituloReprovou/constants/shadow_offset_y = 7
+TituloReprovou/constants/shadow_outline_size = 8
+TituloReprovou/font_sizes/font_size = 88
+TituloReprovou/fonts/font = ExtResource("3_titulo")
+TituloSelecao/base_type = &"Label"
+TituloSelecao/colors/font_color = Color(1, 0.84, 0.31, 1)
+TituloSelecao/colors/font_outline_color = Color(0.04, 0.03, 0.08, 1)
+TituloSelecao/colors/font_shadow_color = Color(0.588, 0.275, 0.039, 1)
+TituloSelecao/constants/outline_size = 8
+TituloSelecao/constants/shadow_offset_x = 5
+TituloSelecao/constants/shadow_offset_y = 5
+TituloSelecao/constants/shadow_outline_size = 8
+TituloSelecao/font_sizes/font_size = 40
+TituloSelecao/fonts/font = ExtResource("3_titulo")
 TituloTela/base_type = &"Label"
 TituloTela/colors/font_color = Color(1, 0.84, 0.31, 1)
 TituloTela/colors/font_shadow_color = Color(0.588, 0.275, 0.039, 1)
@@ -169,91 +266,6 @@ TituloUltimate/font_sizes/font_size = 56
 TituloUltimate/fonts/font = ExtResource("3_titulo")
 VSeparator/constants/separation = 40
 VSeparator/styles/separator = SubResource("StyleBoxLine_separador")
-TituloJogador/base_type = &"Label"
-TituloJogador/colors/font_color = Color(1, 0.84, 0.31, 1)
-TituloJogador/colors/font_shadow_color = Color(0.588, 0.275, 0.039, 1)
-TituloJogador/constants/outline_size = 8
-TituloJogador/constants/shadow_offset_x = 7
-TituloJogador/constants/shadow_offset_y = 7
-TituloJogador/constants/shadow_outline_size = 8
-TituloJogador/font_sizes/font_size = 56
-TituloJogador/fonts/font = ExtResource("3_titulo")
-TituloReprovou/base_type = &"Label"
-TituloReprovou/colors/font_color = Color(0.9, 0.275, 0.235, 1)
-TituloReprovou/colors/font_shadow_color = Color(0.588, 0.275, 0.039, 1)
-TituloReprovou/constants/outline_size = 8
-TituloReprovou/constants/shadow_offset_x = 7
-TituloReprovou/constants/shadow_offset_y = 7
-TituloReprovou/constants/shadow_outline_size = 8
-TituloReprovou/font_sizes/font_size = 88
-TituloReprovou/fonts/font = ExtResource("3_titulo")
-CartaP1/base_type = &"Button"
-CartaP1/styles/disabled = SubResource("StyleBoxFlat_carta")
-CartaP1/styles/hover = SubResource("StyleBoxFlat_carta")
-CartaP1/styles/normal = SubResource("StyleBoxFlat_carta")
-CartaP1/styles/pressed = SubResource("StyleBoxFlat_carta")
-CartaP1/styles/focus = SubResource("StyleBoxFlat_foco_p1")
-CartaP2/base_type = &"Button"
-CartaP2/styles/disabled = SubResource("StyleBoxFlat_carta")
-CartaP2/styles/hover = SubResource("StyleBoxFlat_carta")
-CartaP2/styles/normal = SubResource("StyleBoxFlat_carta")
-CartaP2/styles/pressed = SubResource("StyleBoxFlat_carta")
-CartaP2/styles/focus = SubResource("StyleBoxFlat_foco_p2")
-CartaPronto/base_type = &"Button"
-CartaPronto/styles/disabled = SubResource("StyleBoxFlat_carta")
-CartaPronto/styles/hover = SubResource("StyleBoxFlat_carta")
-CartaPronto/styles/normal = SubResource("StyleBoxFlat_carta")
-CartaPronto/styles/pressed = SubResource("StyleBoxFlat_carta")
-CartaPronto/styles/focus = SubResource("StyleBoxFlat_foco_pronto")
-TituloSelecao/base_type = &"Label"
-TituloSelecao/colors/font_color = Color(1, 0.84, 0.31, 1)
-TituloSelecao/colors/font_shadow_color = Color(0.588, 0.275, 0.039, 1)
-TituloSelecao/constants/shadow_offset_x = 5
-TituloSelecao/constants/shadow_offset_y = 5
-TituloSelecao/constants/shadow_outline_size = 8
-TituloSelecao/colors/font_outline_color = Color(0.04, 0.03, 0.08, 1)
-TituloSelecao/constants/outline_size = 8
-TituloSelecao/font_sizes/font_size = 40
-TituloSelecao/fonts/font = ExtResource("3_titulo")
-JogadorP1/base_type = &"Label"
-JogadorP1/colors/font_color = Color(0.353, 0.667, 1, 1)
-JogadorP1/colors/font_outline_color = Color(0.04, 0.03, 0.08, 1)
-JogadorP1/constants/outline_size = 6
-JogadorP1/font_sizes/font_size = 48
-JogadorP2/base_type = &"Label"
-JogadorP2/colors/font_color = Color(0.941, 0.314, 0.275, 1)
-JogadorP2/colors/font_outline_color = Color(0.04, 0.03, 0.08, 1)
-JogadorP2/constants/outline_size = 6
-JogadorP2/font_sizes/font_size = 48
-NomePersonagem/base_type = &"Label"
-NomePersonagem/colors/font_color = Color(0.91, 0.886, 0.824, 1)
-NomePersonagem/colors/font_outline_color = Color(0.04, 0.03, 0.08, 1)
-NomePersonagem/constants/outline_size = 6
-NomePersonagem/font_sizes/font_size = 48
-NomePrevia/base_type = &"Label"
-NomePrevia/colors/font_color = Color(0.667, 0.549, 0.275, 1)
-NomePrevia/colors/font_outline_color = Color(0.04, 0.03, 0.08, 1)
-NomePrevia/constants/outline_size = 6
-NomePrevia/font_sizes/font_size = 48
-StatusPronto/base_type = &"Label"
-StatusPronto/colors/font_color = Color(0.47, 0.9, 0.47, 1)
-StatusPronto/colors/font_outline_color = Color(0.04, 0.03, 0.08, 1)
-StatusPronto/constants/outline_size = 6
-StatusPronto/font_sizes/font_size = 32
-StatusEscolhendo/base_type = &"Label"
-StatusEscolhendo/colors/font_color = Color(0.667, 0.549, 0.275, 1)
-StatusEscolhendo/colors/font_outline_color = Color(0.04, 0.03, 0.08, 1)
-StatusEscolhendo/constants/outline_size = 6
-StatusEscolhendo/font_sizes/font_size = 32
-StatusEscolhendo/fonts/font = ExtResource("2_regular")
-NomeCarta/base_type = &"Label"
-NomeCarta/colors/font_color = Color(0.91, 0.886, 0.824, 1)
-NomeCarta/colors/font_outline_color = Color(0.04, 0.03, 0.08, 1)
-NomeCarta/constants/outline_size = 6
-NomeCarta/font_sizes/font_size = 32
-EtiquetaTexto/base_type = &"Label"
-EtiquetaTexto/colors/font_color = Color(1, 1, 1, 1)
-EtiquetaTexto/font_sizes/font_size = 32
 VezP1/base_type = &"Label"
 VezP1/colors/font_color = Color(0.353, 0.667, 1, 1)
 VezP1/colors/font_outline_color = Color(0.04, 0.03, 0.08, 1)
@@ -269,19 +281,3 @@ VezPronto/colors/font_color = Color(0.47, 0.9, 0.47, 1)
 VezPronto/colors/font_outline_color = Color(0.04, 0.03, 0.08, 1)
 VezPronto/constants/outline_size = 8
 VezPronto/font_sizes/font_size = 48
-Dica/base_type = &"Label"
-Dica/colors/font_color = Color(0.667, 0.549, 0.275, 1)
-Dica/colors/font_outline_color = Color(0.04, 0.03, 0.08, 1)
-Dica/constants/outline_size = 6
-Dica/font_sizes/font_size = 32
-Dica/fonts/font = ExtResource("2_regular")
-PainelP1/base_type = &"PanelContainer"
-PainelP1/styles/panel = SubResource("StyleBoxFlat_painel_p1")
-PainelP2/base_type = &"PanelContainer"
-PainelP2/styles/panel = SubResource("StyleBoxFlat_painel_p2")
-Moldura/base_type = &"PanelContainer"
-Moldura/styles/panel = SubResource("StyleBoxFlat_moldura")
-EtiquetaP1/base_type = &"PanelContainer"
-EtiquetaP1/styles/panel = SubResource("StyleBoxFlat_etiqueta_p1")
-EtiquetaP2/base_type = &"PanelContainer"
-EtiquetaP2/styles/panel = SubResource("StyleBoxFlat_etiqueta_p2")

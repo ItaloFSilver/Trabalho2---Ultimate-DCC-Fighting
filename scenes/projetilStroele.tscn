@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://coy1ilyyjhn1m"]
+
+[ext_resource type="PackedScene" uid="uid://boytdxb44vdiv" path="res://scenes/projetil_base.tscn" id="1_aay76"]
+[ext_resource type="Texture2D" uid="uid://c5xbj1qbfuxh0" path="res://assets/sprites/specials/banco.png" id="2_auipj"]
+
+[node name="ProjetilBase" unique_id=1746879576 instance=ExtResource("1_aay76")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=451519321]
+position = Vector2(-3.874302e-07, 0)
+scale = Vector2(0.03663004, 0.042283297)
+texture = ExtResource("2_auipj")
+region_enabled = true
+region_rect = Rect2(107.64551, 0, 546.8402, 473.7027)

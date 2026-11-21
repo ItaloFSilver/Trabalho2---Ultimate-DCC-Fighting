@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://b2k7lct3ya654"]
+
+[ext_resource type="PackedScene" uid="uid://boytdxb44vdiv" path="res://scenes/projetil_base.tscn" id="1_u0s8g"]
+[ext_resource type="Texture2D" uid="uid://bl84sacnrtwrg" path="res://assets/sprites/specials/godot.png" id="2_0outs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fpfe6"]
+
+[node name="ProjetilBase" unique_id=1746879576 instance=ExtResource("1_u0s8g")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=451519321]
+position = Vector2(-2.682209e-07, -2.2351742e-08)
+scale = Vector2(0.024999999, 0.025000002)
+texture = ExtResource("2_0outs")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1931152200]
+shape = SubResource("CircleShape2D_fpfe6")

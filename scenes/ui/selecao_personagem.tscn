@@ -1,18 +1,18 @@
-[gd_scene load_steps=12 format=3]
+[gd_scene format=3 uid="uid://du53l2uovkydx"]
 
-[ext_resource type="Script" path="res://scripts/ui/selecao_personagem.gd" id="1_selecao"]
-[ext_resource type="Theme" path="res://assets/ui/tema_ui.tres" id="2_tema"]
-[ext_resource type="Texture2D" path="res://assets/ui/menu/fundo_ice.png" id="3_fundo"]
-[ext_resource type="Script" path="res://scripts/ui/botao_com_seta.gd" id="4_botao"]
-[ext_resource type="Texture2D" path="res://assets/ui/seta.png" id="5_seta"]
+[ext_resource type="Script" uid="uid://b2d5lrlbi04ug" path="res://scripts/ui/selecao_personagem.gd" id="1_selecao"]
+[ext_resource type="Theme" uid="uid://ro03d332gq28" path="res://assets/ui/tema_ui.tres" id="2_tema"]
+[ext_resource type="Texture2D" uid="uid://cflpw55xcprq8" path="res://assets/ui/menu/fundo_ice.png" id="3_fundo"]
+[ext_resource type="Script" uid="uid://cj5kq2h2n15hs" path="res://scripts/ui/botao_com_seta.gd" id="4_botao"]
+[ext_resource type="Texture2D" uid="uid://bngee3kgddu5m" path="res://assets/ui/seta.png" id="5_seta"]
 [ext_resource type="PackedScene" path="res://scenes/ui/carta_personagem.tscn" id="6_carta"]
 [ext_resource type="PackedScene" path="res://scenes/ui/painel_jogador.tscn" id="7_painel"]
-[ext_resource type="Texture2D" path="res://assets/ui/selecao/caniato.png" id="r_caniato"]
-[ext_resource type="Texture2D" path="res://assets/ui/selecao/gleiph.png" id="r_gleiph"]
-[ext_resource type="Texture2D" path="res://assets/ui/selecao/igor.png" id="r_igor"]
-[ext_resource type="Texture2D" path="res://assets/ui/selecao/victor.png" id="r_victor"]
+[ext_resource type="Texture2D" uid="uid://by85emtp1obyc" path="res://assets/ui/selecao/caniato.png" id="r_caniato"]
+[ext_resource type="Texture2D" uid="uid://4cgov0uxrif2" path="res://assets/ui/selecao/gleiph.png" id="r_gleiph"]
+[ext_resource type="Texture2D" uid="uid://c2uq8otmhlgfd" path="res://assets/ui/selecao/igor.png" id="r_igor"]
+[ext_resource type="Texture2D" uid="uid://hpeqjixskw4b" path="res://assets/ui/selecao/victor.png" id="r_victor"]
 
-[node name="SelecaoPersonagem" type="Control"]
+[node name="SelecaoPersonagem" type="Control" unique_id=797644934]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -23,7 +23,7 @@ grow_vertical = 2
 theme = ExtResource("2_tema")
 script = ExtResource("1_selecao")
 
-[node name="Fundo" type="TextureRect" parent="."]
+[node name="Fundo" type="TextureRect" parent="." unique_id=1060777128]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -35,7 +35,7 @@ texture = ExtResource("3_fundo")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="Escurecer" type="ColorRect" parent="."]
+[node name="Escurecer" type="ColorRect" parent="." unique_id=2029002754]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,7 +45,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.024, 0.02, 0.063, 0.65)
 
-[node name="Titulo" type="Label" parent="."]
+[node name="Titulo" type="Label" parent="." unique_id=550342836]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -59,15 +59,14 @@ theme_type_variation = &"TituloSelecao"
 text = "ESCOLHA SEU PROFESSOR"
 horizontal_alignment = 1
 
-[node name="PainelP1" parent="." instance=ExtResource("7_painel")]
+[node name="PainelP1" parent="." unique_id=882132133 instance=ExtResource("7_painel")]
 layout_mode = 0
 offset_left = 24.0
 offset_top = 100.0
 offset_right = 232.0
 offset_bottom = 500.0
-jogador = 1
 
-[node name="PainelP2" parent="." instance=ExtResource("7_painel")]
+[node name="PainelP2" parent="." unique_id=1550522518 instance=ExtResource("7_painel")]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
@@ -77,9 +76,10 @@ offset_top = 100.0
 offset_right = -24.0
 offset_bottom = 500.0
 grow_horizontal = 0
+theme_type_variation = &"PainelP2"
 jogador = 2
 
-[node name="Cartas" type="HBoxContainer" parent="."]
+[node name="Cartas" type="HBoxContainer" parent="." unique_id=616701581]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -92,31 +92,29 @@ grow_horizontal = 2
 mouse_filter = 2
 theme_override_constants/separation = 20
 
-[node name="Caniato" parent="Cartas" instance=ExtResource("6_carta")]
+[node name="Caniato" parent="Cartas" unique_id=224376562 instance=ExtResource("6_carta")]
 layout_mode = 2
 id_personagem = "caniato"
 nome_exibido = "Caniato"
 retrato = ExtResource("r_caniato")
 
-[node name="Gleiph" parent="Cartas" instance=ExtResource("6_carta")]
+[node name="Gleiph" parent="Cartas" unique_id=1726592071 instance=ExtResource("6_carta")]
 layout_mode = 2
-id_personagem = "gleiph"
-nome_exibido = "Gleiph"
 retrato = ExtResource("r_gleiph")
 
-[node name="Igor" parent="Cartas" instance=ExtResource("6_carta")]
+[node name="Igor" parent="Cartas" unique_id=1762168760 instance=ExtResource("6_carta")]
 layout_mode = 2
-id_personagem = "igor"
+id_personagem = "knop"
 nome_exibido = "Igor"
 retrato = ExtResource("r_igor")
 
-[node name="Victor" parent="Cartas" instance=ExtResource("6_carta")]
+[node name="Victor" parent="Cartas" unique_id=1766087635 instance=ExtResource("6_carta")]
 layout_mode = 2
-id_personagem = "victor"
+id_personagem = "stroele"
 nome_exibido = "Victor"
 retrato = ExtResource("r_victor")
 
-[node name="Vez" type="Label" parent="."]
+[node name="Vez" type="Label" parent="." unique_id=647589883]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -130,7 +128,7 @@ theme_type_variation = &"VezP1"
 text = "VEZ DO PLAYER 1"
 horizontal_alignment = 1
 
-[node name="Dica" type="Label" parent="."]
+[node name="Dica" type="Label" parent="." unique_id=2126950653]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -145,25 +143,25 @@ text = "Enter / C / K escolhe   V desfaz P1   L desfaz P2
 Esc volta ao menu"
 horizontal_alignment = 1
 
-[node name="Voltar" type="Button" parent="."]
+[node name="Voltar" type="Button" parent="." unique_id=1875488241]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-grow_vertical = 0
 offset_left = 64.0
 offset_top = -57.0
 offset_right = 208.0
 offset_bottom = -9.0
+grow_vertical = 0
+focus_neighbor_left = NodePath("../Start")
 focus_neighbor_top = NodePath("../Cartas/Caniato")
 focus_neighbor_right = NodePath("../Start")
-focus_neighbor_left = NodePath("../Start")
 focus_neighbor_bottom = NodePath(".")
 theme_type_variation = &"BotaoPequeno"
 text = "VOLTAR"
 script = ExtResource("4_botao")
 
-[node name="Seta" type="TextureRect" parent="Voltar"]
+[node name="Seta" type="TextureRect" parent="Voltar" unique_id=1570142671]
 visible = false
 layout_mode = 0
 offset_left = -24.0
@@ -174,21 +172,21 @@ mouse_filter = 2
 texture = ExtResource("5_seta")
 expand_mode = 1
 
-[node name="Start" type="Button" parent="."]
+[node name="Start" type="Button" parent="." unique_id=1629521057]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 0
-grow_vertical = 0
 offset_left = -160.0
 offset_top = -57.0
 offset_right = -40.0
 offset_bottom = -9.0
-focus_neighbor_top = NodePath("../Cartas/Victor")
+grow_horizontal = 0
+grow_vertical = 0
 focus_neighbor_left = NodePath("../Voltar")
+focus_neighbor_top = NodePath("../Cartas/Victor")
 focus_neighbor_right = NodePath("../Voltar")
 focus_neighbor_bottom = NodePath(".")
 theme_type_variation = &"BotaoPequeno"
@@ -196,7 +194,7 @@ disabled = true
 text = "START"
 script = ExtResource("4_botao")
 
-[node name="Seta" type="TextureRect" parent="Start"]
+[node name="Seta" type="TextureRect" parent="Start" unique_id=39524013]
 visible = false
 layout_mode = 0
 offset_left = -24.0
