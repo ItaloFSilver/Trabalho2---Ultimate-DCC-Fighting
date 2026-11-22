@@ -27,7 +27,7 @@ var health: float = max_health
 # Barra de Especial[cite: 1]
 var special_meter: float = 0.0
 var max_special: float = 100.0
-@export var base_special_gain: float = 5.0
+@export var base_special_gain: float = 15.0
 
 enum State { IDLE, WALK, JUMP, ATTACK, AIR_ATTACK, HIT, AIR_HIT, DEAD }
 var current_state: State = State.IDLE

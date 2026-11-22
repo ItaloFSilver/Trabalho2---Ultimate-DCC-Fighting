@@ -7,6 +7,7 @@
 height = 20.0
 
 [node name="ProjetilBase" unique_id=1746879576 instance=ExtResource("1_twps5")]
+scale = Vector2(4, 4)
 
 [node name="Sprite2D" parent="." index="0" unique_id=451519321]
 position = Vector2(2.3841858e-07, 0)

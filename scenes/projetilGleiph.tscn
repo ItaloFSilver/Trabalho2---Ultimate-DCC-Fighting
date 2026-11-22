@@ -6,6 +6,7 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_xunoi"]
 
 [node name="ProjetilBase" unique_id=1746879576 instance=ExtResource("1_l154f")]
+scale = Vector2(4, 4)
 
 [node name="Sprite2D" parent="." index="0" unique_id=451519321]
 position = Vector2(0, 9.536743e-07)
