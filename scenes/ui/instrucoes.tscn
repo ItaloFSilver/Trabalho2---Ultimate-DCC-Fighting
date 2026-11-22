@@ -1,0 +1,464 @@
+[gd_scene format=3 uid="uid://dobto3pkcn4yg"]
+
+[ext_resource type="Script" uid="uid://1nehjac3l645" path="res://scripts/ui/instrucoes.gd" id="1_instr"]
+[ext_resource type="Theme" uid="uid://ro03d332gq28" path="res://assets/ui/tema_ui.tres" id="2_tema"]
+[ext_resource type="Texture2D" uid="uid://cflpw55xcprq8" path="res://assets/ui/menu/fundo_ice.png" id="3_fundo"]
+[ext_resource type="Script" uid="uid://cj5kq2h2n15hs" path="res://scripts/ui/botao_com_seta.gd" id="4_botao"]
+[ext_resource type="Texture2D" uid="uid://bngee3kgddu5m" path="res://assets/ui/seta.png" id="5_seta"]
+[ext_resource type="Texture2D" uid="uid://dlaeqcwl5odve" path="res://assets/ui/instrucoes/seta_cima.png" id="s_cima"]
+[ext_resource type="Texture2D" uid="uid://c51osbhhu7log" path="res://assets/ui/instrucoes/seta_direita.png" id="s_direita"]
+[ext_resource type="Texture2D" uid="uid://cnohh6r35gdup" path="res://assets/ui/instrucoes/seta_esquerda.png" id="s_esquerda"]
+
+[node name="Instrucoes" type="Control" unique_id=1944743264]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_tema")
+script = ExtResource("1_instr")
+
+[node name="Fundo" type="TextureRect" parent="." unique_id=1093444570]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_fundo")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Escurecer" type="ColorRect" parent="." unique_id=1520940568]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.024, 0.02, 0.063, 0.59)
+
+[node name="Titulo" type="Label" parent="." unique_id=493642549]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -400.0
+offset_top = 6.0
+offset_right = 400.0
+offset_bottom = 118.0
+grow_horizontal = 2
+theme_type_variation = &"TituloTela"
+text = "INSTRUÇÕES"
+horizontal_alignment = 1
+
+[node name="Caixa" type="PanelContainer" parent="." unique_id=1512869894]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -533.0
+offset_top = 122.0
+offset_right = 533.0
+offset_bottom = 484.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_type_variation = &"PainelCreditos"
+
+[node name="Margem" type="MarginContainer" parent="Caixa" unique_id=1583849905]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 16
+
+[node name="Colunas" type="HBoxContainer" parent="Caixa/Margem" unique_id=1222656720]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Player1" type="VBoxContainer" parent="Caixa/Margem/Colunas" unique_id=1855073999]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="Jogador" type="Label" parent="Caixa/Margem/Colunas/Player1" unique_id=751700505]
+layout_mode = 2
+theme_type_variation = &"JogadorP1"
+text = "PLAYER 1"
+horizontal_alignment = 1
+
+[node name="Espaco" type="Control" parent="Caixa/Margem/Colunas/Player1" unique_id=1644545243]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Andar" type="HBoxContainer" parent="Caixa/Margem/Colunas/Player1" unique_id=521379659]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="Acao" type="Label" parent="Caixa/Margem/Colunas/Player1/Andar" unique_id=453628120]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"Acao"
+text = "Andar"
+
+[node name="Tecla1" type="PanelContainer" parent="Caixa/Margem/Colunas/Player1/Andar" unique_id=1092623704]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"Tecla"
+
+[node name="Texto" type="Label" parent="Caixa/Margem/Colunas/Player1/Andar/Tecla1" unique_id=740945790]
+layout_mode = 2
+theme_type_variation = &"TeclaTexto"
+text = "A"
+horizontal_alignment = 1
+
+[node name="Tecla2" type="Label" parent="Caixa/Margem/Colunas/Player1/Andar" unique_id=630297708]
+layout_mode = 2
+theme_type_variation = &"Acao"
+text = "/"
+
+[node name="Tecla3" type="PanelContainer" parent="Caixa/Margem/Colunas/Player1/Andar" unique_id=827158643]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"Tecla"
+
+[node name="Texto" type="Label" parent="Caixa/Margem/Colunas/Player1/Andar/Tecla3" unique_id=125255660]
+layout_mode = 2
+theme_type_variation = &"TeclaTexto"
+text = "D"
+horizontal_alignment = 1
+
+[node name="Pular" type="HBoxContainer" parent="Caixa/Margem/Colunas/Player1" unique_id=1449034173]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="Acao" type="Label" parent="Caixa/Margem/Colunas/Player1/Pular" unique_id=265074593]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"Acao"
+text = "Pular"
+
+[node name="Tecla1" type="PanelContainer" parent="Caixa/Margem/Colunas/Player1/Pular" unique_id=1184776190]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"Tecla"
+
+[node name="Texto" type="Label" parent="Caixa/Margem/Colunas/Player1/Pular/Tecla1" unique_id=1998178213]
+layout_mode = 2
+theme_type_variation = &"TeclaTexto"
+text = "W"
+horizontal_alignment = 1
+
+[node name="Soco" type="HBoxContainer" parent="Caixa/Margem/Colunas/Player1" unique_id=681193695]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="Acao" type="Label" parent="Caixa/Margem/Colunas/Player1/Soco" unique_id=2048417780]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"Acao"
+text = "Soco"
+
+[node name="Tecla1" type="PanelContainer" parent="Caixa/Margem/Colunas/Player1/Soco" unique_id=1130429587]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"Tecla"
+
+[node name="Texto" type="Label" parent="Caixa/Margem/Colunas/Player1/Soco/Tecla1" unique_id=1937083230]
+layout_mode = 2
+theme_type_variation = &"TeclaTexto"
+text = "C"
+horizontal_alignment = 1
+
+[node name="Chute" type="HBoxContainer" parent="Caixa/Margem/Colunas/Player1" unique_id=846489389]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="Acao" type="Label" parent="Caixa/Margem/Colunas/Player1/Chute" unique_id=1528861310]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"Acao"
+text = "Chute"
+
+[node name="Tecla1" type="PanelContainer" parent="Caixa/Margem/Colunas/Player1/Chute" unique_id=1635079544]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"Tecla"
+
+[node name="Texto" type="Label" parent="Caixa/Margem/Colunas/Player1/Chute/Tecla1" unique_id=772015375]
+layout_mode = 2
+theme_type_variation = &"TeclaTexto"
+text = "V"
+horizontal_alignment = 1
+
+[node name="Especial" type="HBoxContainer" parent="Caixa/Margem/Colunas/Player1" unique_id=1612321130]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="Acao" type="Label" parent="Caixa/Margem/Colunas/Player1/Especial" unique_id=671745454]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"Acao"
+text = "Especial"
+
+[node name="Tecla1" type="PanelContainer" parent="Caixa/Margem/Colunas/Player1/Especial" unique_id=1284511026]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"Tecla"
+
+[node name="Texto" type="Label" parent="Caixa/Margem/Colunas/Player1/Especial/Tecla1" unique_id=333227589]
+layout_mode = 2
+theme_type_variation = &"TeclaTexto"
+text = "X"
+horizontal_alignment = 1
+
+[node name="Defender" type="HBoxContainer" parent="Caixa/Margem/Colunas/Player1" unique_id=548134691]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="Acao" type="Label" parent="Caixa/Margem/Colunas/Player1/Defender" unique_id=905829763]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"Acao"
+text = "Defender"
+
+[node name="Tecla1" type="Label" parent="Caixa/Margem/Colunas/Player1/Defender" unique_id=338762707]
+layout_mode = 2
+theme_type_variation = &"Acao"
+text = "segurar para trás"
+
+[node name="Separador" type="VSeparator" parent="Caixa/Margem/Colunas" unique_id=744796627]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Player2" type="VBoxContainer" parent="Caixa/Margem/Colunas" unique_id=1158076178]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 4
+
+[node name="Jogador" type="Label" parent="Caixa/Margem/Colunas/Player2" unique_id=36163660]
+layout_mode = 2
+theme_type_variation = &"JogadorP2"
+text = "PLAYER 2"
+horizontal_alignment = 1
+
+[node name="Espaco" type="Control" parent="Caixa/Margem/Colunas/Player2" unique_id=1320367670]
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Andar" type="HBoxContainer" parent="Caixa/Margem/Colunas/Player2" unique_id=1609470922]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="Acao" type="Label" parent="Caixa/Margem/Colunas/Player2/Andar" unique_id=2065245051]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"Acao"
+text = "Andar"
+
+[node name="Tecla1" type="PanelContainer" parent="Caixa/Margem/Colunas/Player2/Andar" unique_id=252457787]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"Tecla"
+
+[node name="Seta" type="TextureRect" parent="Caixa/Margem/Colunas/Player2/Andar/Tecla1" unique_id=327857650]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("s_esquerda")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Tecla2" type="Label" parent="Caixa/Margem/Colunas/Player2/Andar" unique_id=75811078]
+layout_mode = 2
+theme_type_variation = &"Acao"
+text = "/"
+
+[node name="Tecla3" type="PanelContainer" parent="Caixa/Margem/Colunas/Player2/Andar" unique_id=427230646]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"Tecla"
+
+[node name="Seta" type="TextureRect" parent="Caixa/Margem/Colunas/Player2/Andar/Tecla3" unique_id=594130196]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("s_direita")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Pular" type="HBoxContainer" parent="Caixa/Margem/Colunas/Player2" unique_id=711454432]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="Acao" type="Label" parent="Caixa/Margem/Colunas/Player2/Pular" unique_id=347703371]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"Acao"
+text = "Pular"
+
+[node name="Tecla1" type="PanelContainer" parent="Caixa/Margem/Colunas/Player2/Pular" unique_id=1144961086]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"Tecla"
+
+[node name="Seta" type="TextureRect" parent="Caixa/Margem/Colunas/Player2/Pular/Tecla1" unique_id=1862859143]
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("s_cima")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Soco" type="HBoxContainer" parent="Caixa/Margem/Colunas/Player2" unique_id=1409981293]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="Acao" type="Label" parent="Caixa/Margem/Colunas/Player2/Soco" unique_id=1818153696]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"Acao"
+text = "Soco"
+
+[node name="Tecla1" type="PanelContainer" parent="Caixa/Margem/Colunas/Player2/Soco" unique_id=1717944611]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"Tecla"
+
+[node name="Texto" type="Label" parent="Caixa/Margem/Colunas/Player2/Soco/Tecla1" unique_id=1070473507]
+layout_mode = 2
+theme_type_variation = &"TeclaTexto"
+text = "K"
+horizontal_alignment = 1
+
+[node name="Chute" type="HBoxContainer" parent="Caixa/Margem/Colunas/Player2" unique_id=217234639]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="Acao" type="Label" parent="Caixa/Margem/Colunas/Player2/Chute" unique_id=1045117803]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"Acao"
+text = "Chute"
+
+[node name="Tecla1" type="PanelContainer" parent="Caixa/Margem/Colunas/Player2/Chute" unique_id=1984647075]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"Tecla"
+
+[node name="Texto" type="Label" parent="Caixa/Margem/Colunas/Player2/Chute/Tecla1" unique_id=1876536103]
+layout_mode = 2
+theme_type_variation = &"TeclaTexto"
+text = "L"
+horizontal_alignment = 1
+
+[node name="Especial" type="HBoxContainer" parent="Caixa/Margem/Colunas/Player2" unique_id=1921125627]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="Acao" type="Label" parent="Caixa/Margem/Colunas/Player2/Especial" unique_id=601653117]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"Acao"
+text = "Especial"
+
+[node name="Tecla1" type="PanelContainer" parent="Caixa/Margem/Colunas/Player2/Especial" unique_id=1392243854]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+mouse_filter = 2
+theme_type_variation = &"Tecla"
+
+[node name="Texto" type="Label" parent="Caixa/Margem/Colunas/Player2/Especial/Tecla1" unique_id=1658669061]
+layout_mode = 2
+theme_type_variation = &"TeclaTexto"
+text = "J"
+horizontal_alignment = 1
+
+[node name="Defender" type="HBoxContainer" parent="Caixa/Margem/Colunas/Player2" unique_id=1884503792]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="Acao" type="Label" parent="Caixa/Margem/Colunas/Player2/Defender" unique_id=1420816263]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = &"Acao"
+text = "Defender"
+
+[node name="Tecla1" type="Label" parent="Caixa/Margem/Colunas/Player2/Defender" unique_id=1664911293]
+layout_mode = 2
+theme_type_variation = &"Acao"
+text = "segurar para trás"
+
+[node name="Dicas" type="Label" parent="." unique_id=419427964]
+layout_mode = 1
+offset_left = 34.0
+offset_top = 534.0
+offset_right = 871.0
+offset_bottom = 636.0
+theme_type_variation = &"Dica"
+text = "Combo: 3 golpes seguidos fazem um finalizador, com mais dano.
+Defesa: andar para trás enquanto leva um golpe reduz o dano.
+Especial: só funciona com a barra azul cheia."
+
+[node name="Voltar" type="Button" parent="." unique_id=1426128566]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -184.0
+offset_top = -57.0
+offset_right = -40.0
+offset_bottom = -9.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_type_variation = &"BotaoPequeno"
+text = "VOLTAR"
+script = ExtResource("4_botao")
+
+[node name="Seta" type="TextureRect" parent="Voltar" unique_id=1259404159]
+visible = false
+layout_mode = 0
+offset_left = -24.0
+offset_top = 14.0
+offset_right = -12.0
+offset_bottom = 35.0
+mouse_filter = 2
+texture = ExtResource("5_seta")
+expand_mode = 1
+
+[connection signal="pressed" from="Voltar" to="." method="_on_voltar_pressed"]

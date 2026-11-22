@@ -98,6 +98,19 @@ shadow_color = Color(0.04, 0.03, 0.08, 1)
 shadow_size = 4
 anti_aliasing = false
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tecla"]
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 8.0
+content_margin_bottom = 2.0
+bg_color = Color(0.12, 0.1, 0.22, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 4
+border_color = Color(0.965, 0.698, 0.157, 1)
+anti_aliasing = false
+
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_separador"]
 color = Color(0.353, 0.216, 0.078, 1)
 thickness = 4
@@ -106,8 +119,16 @@ vertical = true
 [resource]
 default_font = ExtResource("1_negrito")
 default_font_size = 48
+Acao/base_type = &"Label"
+Acao/colors/font_color = Color(0.91, 0.886, 0.824, 1)
+Acao/colors/font_outline_color = Color(0.04, 0.03, 0.08, 1)
+Acao/constants/outline_size = 6
+Acao/font_sizes/font_size = 32
+Acao/fonts/font = ExtResource("2_regular")
 BotaoMenu/base_type = &"Button"
 BotaoMenu/font_sizes/font_size = 112
+BotaoMenuMedio/base_type = &"Button"
+BotaoMenuMedio/font_sizes/font_size = 80
 BotaoPequeno/base_type = &"Button"
 BotaoPequeno/font_sizes/font_size = 48
 Button/colors/font_color = Color(0.667, 0.549, 0.275, 1)
@@ -210,6 +231,11 @@ StatusPronto/colors/font_color = Color(0.47, 0.9, 0.47, 1)
 StatusPronto/colors/font_outline_color = Color(0.04, 0.03, 0.08, 1)
 StatusPronto/constants/outline_size = 6
 StatusPronto/font_sizes/font_size = 32
+Tecla/base_type = &"PanelContainer"
+Tecla/styles/panel = SubResource("StyleBoxFlat_tecla")
+TeclaTexto/base_type = &"Label"
+TeclaTexto/colors/font_color = Color(1, 0.84, 0.31, 1)
+TeclaTexto/font_sizes/font_size = 32
 TituloDCC/base_type = &"Label"
 TituloDCC/colors/font_color = Color(1, 0.84, 0.31, 1)
 TituloDCC/colors/font_shadow_color = Color(0.588, 0.275, 0.039, 1)

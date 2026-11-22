@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bngee3kgddu5m" path="res://assets/ui/seta.png" id="5_seta"]
 [ext_resource type="PackedScene" path="res://scenes/ui/carta_personagem.tscn" id="6_carta"]
 [ext_resource type="PackedScene" path="res://scenes/ui/painel_jogador.tscn" id="7_painel"]
-[ext_resource type="Texture2D" uid="uid://4ehr53sl60fd" path="res://assets/ui/selecao/stroele(1).png" id="9_l6qpx"]
+[ext_resource type="Texture2D" path="res://assets/ui/selecao/stroele.png" id="9_l6qpx"]
 [ext_resource type="Texture2D" uid="uid://by85emtp1obyc" path="res://assets/ui/selecao/caniato.png" id="r_caniato"]
 [ext_resource type="Texture2D" uid="uid://4cgov0uxrif2" path="res://assets/ui/selecao/gleiph.png" id="r_gleiph"]
 [ext_resource type="Texture2D" uid="uid://cqjnd6wuya2tp" path="res://assets/ui/selecao/knop.png" id="r_knop"]

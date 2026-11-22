@@ -1,13 +1,14 @@
 extends Control
-## Menu inicial do Ultimate DCC Fighting: Jogar, Créditos e Sair.
+## Menu inicial do Ultimate DCC Fighting: Jogar, Instruções, Créditos e Sair.
 ## Layout, cores e fontes ficam na cena e no tema (assets/ui/tema_ui.tres);
 ## os sinais "pressed" dos botões estão conectados pelo editor (aba Nó > Sinais).
 
 ## Cena aberta por "Jogar": a seleção de personagem.
 const CENA_JOGAR := "res://scenes/ui/selecao_personagem.tscn"
+const CENA_INSTRUCOES := "res://scenes/ui/instrucoes.tscn"
 const CENA_CREDITOS := "res://scenes/ui/creditos.tscn"
 
-@onready var botoes: Array[Button] = [$Opcoes/Jogar, $Opcoes/Creditos, $Opcoes/Sair]
+@onready var botoes: Array[Button] = [$Opcoes/Jogar, $Opcoes/Instrucoes, $Opcoes/Creditos, $Opcoes/Sair]
 
 var _escolheu := false
 
@@ -46,6 +47,11 @@ func _pode_escolher() -> bool:
 func _on_jogar_pressed() -> void:
 	if _pode_escolher():
 		GerenciadorCenas.trocar_cena(CENA_JOGAR)
+
+
+func _on_instrucoes_pressed() -> void:
+	if _pode_escolher():
+		GerenciadorCenas.trocar_cena(CENA_INSTRUCOES)
 
 
 func _on_creditos_pressed() -> void:

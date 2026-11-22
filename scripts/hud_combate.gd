@@ -81,9 +81,10 @@ func _criar_lado(raiz: Control, lutador: FighterBase, numero: int) -> void:
 	raiz.add_child(fundo_esp)
 
 	var especial := ProgressBar.new()
-	_estilizar_barra(especial, COR_ESPECIAL, ALTURA_ESPECIAL, lutador.max_special, !esquerda)
-	especial.custom_minimum_size.x = LARGURA_BARRA * 0.6
-	especial.size.x = LARGURA_BARRA * 0.6
+	# a largura vai direto no _estilizar_barra: mudar o custom_minimum_size depois não
+	# encolhe a barra na hora (a Godot atualiza o tamanho mínimo depois), e ela ficava com
+	# a largura da barra de vida, passando para fora da tela no lado do P2
+	_estilizar_barra(especial, COR_ESPECIAL, ALTURA_ESPECIAL, lutador.max_special, !esquerda, LARGURA_BARRA * 0.6)
 	especial.position = Vector2(fundo_esp.position.x + 2, fundo_esp.position.y + 2)
 	raiz.add_child(especial)
 
@@ -109,13 +110,13 @@ func _criar_lado(raiz: Control, lutador: FighterBase, numero: int) -> void:
 	lutador.derrotado.connect(_on_derrotado)
 
 
-func _estilizar_barra(barra: ProgressBar, cor: Color, altura: float, maximo: float, invertida: bool) -> void:
+func _estilizar_barra(barra: ProgressBar, cor: Color, altura: float, maximo: float, invertida: bool, largura := LARGURA_BARRA) -> void:
 	barra.show_percentage = false
 	barra.min_value = 0.0
 	barra.max_value = maximo
 	barra.value = maximo
-	barra.custom_minimum_size = Vector2(LARGURA_BARRA, altura)
-	barra.size = Vector2(LARGURA_BARRA, altura)
+	barra.custom_minimum_size = Vector2(largura, altura)
+	barra.size = Vector2(largura, altura)
 	barra.fill_mode = ProgressBar.FILL_END_TO_BEGIN if invertida else ProgressBar.FILL_BEGIN_TO_END
 	var preenchimento := StyleBoxFlat.new()
 	preenchimento.bg_color = cor

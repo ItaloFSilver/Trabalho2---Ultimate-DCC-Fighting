@@ -1,12 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dvmr230sx4f0n"]
+[gd_scene format=3 uid="uid://dvmr230sx4f0n"]
 
-[ext_resource type="Script" path="res://scripts/ui/creditos.gd" id="1_creditos"]
-[ext_resource type="Theme" path="res://assets/ui/tema_ui.tres" id="2_tema"]
-[ext_resource type="Texture2D" path="res://assets/ui/menu/fundo_ice.png" id="3_fundo"]
-[ext_resource type="Script" path="res://scripts/ui/botao_com_seta.gd" id="4_botao"]
-[ext_resource type="Texture2D" path="res://assets/ui/seta.png" id="5_seta"]
+[ext_resource type="Script" uid="uid://bkquqfhpaxuq5" path="res://scripts/ui/creditos.gd" id="1_creditos"]
+[ext_resource type="Theme" uid="uid://ro03d332gq28" path="res://assets/ui/tema_ui.tres" id="2_tema"]
+[ext_resource type="Texture2D" uid="uid://cflpw55xcprq8" path="res://assets/ui/menu/fundo_ice.png" id="3_fundo"]
+[ext_resource type="Script" uid="uid://cj5kq2h2n15hs" path="res://scripts/ui/botao_com_seta.gd" id="4_botao"]
+[ext_resource type="Texture2D" uid="uid://bngee3kgddu5m" path="res://assets/ui/seta.png" id="5_seta"]
 
-[node name="Creditos" type="Control"]
+[node name="Creditos" type="Control" unique_id=1973730677]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -17,7 +17,7 @@ grow_vertical = 2
 theme = ExtResource("2_tema")
 script = ExtResource("1_creditos")
 
-[node name="Fundo" type="TextureRect" parent="."]
+[node name="Fundo" type="TextureRect" parent="." unique_id=1295797436]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,7 +29,7 @@ texture = ExtResource("3_fundo")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="Escurecer" type="ColorRect" parent="."]
+[node name="Escurecer" type="ColorRect" parent="." unique_id=1461319203]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,7 +39,7 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.024, 0.02, 0.063, 0.59)
 
-[node name="Titulo" type="Label" parent="."]
+[node name="Titulo" type="Label" parent="." unique_id=1742871728]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -53,7 +53,7 @@ theme_type_variation = &"TituloTela"
 text = "CRÉDITOS"
 horizontal_alignment = 1
 
-[node name="Caixa" type="PanelContainer" parent="."]
+[node name="Caixa" type="PanelContainer" parent="." unique_id=686920874]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -66,7 +66,7 @@ grow_horizontal = 2
 mouse_filter = 2
 theme_type_variation = &"PainelCreditos"
 
-[node name="Margem" type="MarginContainer" parent="Caixa"]
+[node name="Margem" type="MarginContainer" parent="Caixa" unique_id=1130435828]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/margin_left = 32
@@ -74,30 +74,30 @@ theme_override_constants/margin_top = 20
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 20
 
-[node name="Conteudo" type="VBoxContainer" parent="Caixa/Margem"]
+[node name="Conteudo" type="VBoxContainer" parent="Caixa/Margem" unique_id=1751430765]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 36
 alignment = 1
 
-[node name="Colunas" type="HBoxContainer" parent="Caixa/Margem/Conteudo"]
+[node name="Colunas" type="HBoxContainer" parent="Caixa/Margem/Conteudo" unique_id=1292074469]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 0
 
-[node name="Desenvolvimento" type="VBoxContainer" parent="Caixa/Margem/Conteudo/Colunas"]
+[node name="Desenvolvimento" type="VBoxContainer" parent="Caixa/Margem/Conteudo/Colunas" unique_id=985564622]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_constants/separation = 6
 
-[node name="Cabecalho" type="Label" parent="Caixa/Margem/Conteudo/Colunas/Desenvolvimento"]
+[node name="Cabecalho" type="Label" parent="Caixa/Margem/Conteudo/Colunas/Desenvolvimento" unique_id=811658181]
 layout_mode = 2
 theme_type_variation = &"Cabecalho"
 text = "DESENVOLVIMENTO"
 horizontal_alignment = 1
 
-[node name="Nomes" type="Label" parent="Caixa/Margem/Conteudo/Colunas/Desenvolvimento"]
+[node name="Nomes" type="Label" parent="Caixa/Margem/Conteudo/Colunas/Desenvolvimento" unique_id=122882706]
 layout_mode = 2
 theme_type_variation = &"Nomes"
 text = "Gustavo Bersan
@@ -106,23 +106,23 @@ Nina Aguiar
 Arthur Marques"
 horizontal_alignment = 1
 
-[node name="Separador" type="VSeparator" parent="Caixa/Margem/Conteudo/Colunas"]
+[node name="Separador" type="VSeparator" parent="Caixa/Margem/Conteudo/Colunas" unique_id=1902725369]
 layout_mode = 2
 mouse_filter = 2
 
-[node name="Agradecimentos" type="VBoxContainer" parent="Caixa/Margem/Conteudo/Colunas"]
+[node name="Agradecimentos" type="VBoxContainer" parent="Caixa/Margem/Conteudo/Colunas" unique_id=611765714]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 theme_override_constants/separation = 6
 
-[node name="Cabecalho" type="Label" parent="Caixa/Margem/Conteudo/Colunas/Agradecimentos"]
+[node name="Cabecalho" type="Label" parent="Caixa/Margem/Conteudo/Colunas/Agradecimentos" unique_id=50844574]
 layout_mode = 2
 theme_type_variation = &"Cabecalho"
 text = "AGRADECIMENTOS"
 horizontal_alignment = 1
 
-[node name="Nomes" type="Label" parent="Caixa/Margem/Conteudo/Colunas/Agradecimentos"]
+[node name="Nomes" type="Label" parent="Caixa/Margem/Conteudo/Colunas/Agradecimentos" unique_id=1346800016]
 layout_mode = 2
 theme_type_variation = &"Nomes"
 text = "Prof. Caniato
@@ -131,24 +131,24 @@ Prof. Victor
 Prof. Igor"
 horizontal_alignment = 1
 
-[node name="Recursos" type="VBoxContainer" parent="Caixa/Margem/Conteudo"]
+[node name="Recursos" type="VBoxContainer" parent="Caixa/Margem/Conteudo" unique_id=1737829895]
 layout_mode = 2
 mouse_filter = 2
 theme_override_constants/separation = 6
 
-[node name="Cabecalho" type="Label" parent="Caixa/Margem/Conteudo/Recursos"]
+[node name="Cabecalho" type="Label" parent="Caixa/Margem/Conteudo/Recursos" unique_id=348388384]
 layout_mode = 2
 theme_type_variation = &"Cabecalho"
 text = "RECURSOS DE TERCEIROS"
 horizontal_alignment = 1
 
-[node name="Nomes" type="Label" parent="Caixa/Margem/Conteudo/Recursos"]
+[node name="Nomes" type="Label" parent="Caixa/Margem/Conteudo/Recursos" unique_id=1123461206]
 layout_mode = 2
 theme_type_variation = &"Nomes"
-text = "Fonte Pixel Operator (CC0)"
+text = "Efeitos sonoros: Pixabay"
 horizontal_alignment = 1
 
-[node name="Voltar" type="Button" parent="."]
+[node name="Voltar" type="Button" parent="." unique_id=344815604]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -165,7 +165,7 @@ theme_type_variation = &"BotaoPequeno"
 text = "VOLTAR"
 script = ExtResource("4_botao")
 
-[node name="Seta" type="TextureRect" parent="Voltar"]
+[node name="Seta" type="TextureRect" parent="Voltar" unique_id=326331433]
 visible = false
 layout_mode = 0
 offset_left = -24.0
