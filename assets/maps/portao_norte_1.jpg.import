@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bmsysm6xyopy"
-path="res://.godot/imported/portao_norte.jpg-afbccb941f3885f8a6c3f88b31889477.ctex"
+path="res://.godot/imported/portao_norte_1.jpg-56c4a4c1ca9f3469584293619ae1763a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/maps/portao_norte.jpg"
-dest_files=["res://.godot/imported/portao_norte.jpg-afbccb941f3885f8a6c3f88b31889477.ctex"]
+source_file="res://assets/maps/portao_norte_1.jpg"
+dest_files=["res://.godot/imported/portao_norte_1.jpg-56c4a4c1ca9f3469584293619ae1763a.ctex"]
 
 [params]
 
