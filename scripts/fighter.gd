@@ -41,6 +41,8 @@ func _ready():
 	combo_timer.wait_time = 0.35
 	combo_timer.one_shot = true
 	combo_timer.timeout.connect(_on_combo_timer_timeout)
+	collision_layer = 2 
+	collision_mask = 1
 
 func _physics_process(delta: float) -> void:
 	if not is_on_floor():
