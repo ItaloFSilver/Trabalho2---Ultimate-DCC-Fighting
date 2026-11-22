@@ -7,10 +7,10 @@
 [ext_resource type="Texture2D" uid="uid://bngee3kgddu5m" path="res://assets/ui/seta.png" id="5_seta"]
 [ext_resource type="PackedScene" path="res://scenes/ui/carta_personagem.tscn" id="6_carta"]
 [ext_resource type="PackedScene" path="res://scenes/ui/painel_jogador.tscn" id="7_painel"]
+[ext_resource type="Texture2D" uid="uid://4ehr53sl60fd" path="res://assets/ui/selecao/stroele(1).png" id="9_l6qpx"]
 [ext_resource type="Texture2D" uid="uid://by85emtp1obyc" path="res://assets/ui/selecao/caniato.png" id="r_caniato"]
 [ext_resource type="Texture2D" uid="uid://4cgov0uxrif2" path="res://assets/ui/selecao/gleiph.png" id="r_gleiph"]
 [ext_resource type="Texture2D" uid="uid://cqjnd6wuya2tp" path="res://assets/ui/selecao/knop.png" id="r_knop"]
-[ext_resource type="Texture2D" uid="uid://d1mg15wcmi3kx" path="res://assets/ui/selecao/stroele.png" id="r_stroele"]
 
 [node name="SelecaoPersonagem" type="Control" unique_id=797644934]
 texture_filter = 1
@@ -110,9 +110,10 @@ retrato = ExtResource("r_knop")
 
 [node name="Stroele" parent="Cartas" unique_id=1766087635 instance=ExtResource("6_carta")]
 layout_mode = 2
+offset_transform_enabled = true
 id_personagem = "stroele"
 nome_exibido = "Stroele"
-retrato = ExtResource("r_stroele")
+retrato = ExtResource("9_l6qpx")
 
 [node name="Vez" type="Label" parent="." unique_id=647589883]
 layout_mode = 1
