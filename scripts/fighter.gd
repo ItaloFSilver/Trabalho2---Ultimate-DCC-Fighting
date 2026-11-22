@@ -3,6 +3,9 @@ class_name FighterBase
 
 ## Emitido uma vez, quando a vida chega a zero. A arena usa para encerrar a luta.
 signal derrotado(lutador: FighterBase)
+## Emitidos quando vida/especial mudam. O HUD escuta esses sinais.
+signal vida_mudou(atual: float, maximo: float)
+signal especial_mudou(atual: float, maximo: float)
 
 # Identificação e Referência do Oponente
 @export var player_prefix: String = "p1_" # Use "p1_" para Player 1 e "p2_" para Player 2
@@ -38,6 +41,8 @@ var combo_step: int = 0
 
 func _ready():
 	health = max_health
+	vida_mudou.emit(health, max_health)
+	especial_mudou.emit(special_meter, max_special)
 	combo_timer.wait_time = 0.35
 	combo_timer.one_shot = true
 	combo_timer.timeout.connect(_on_combo_timer_timeout)
@@ -89,6 +94,7 @@ func handle_movement():
 		velocity.y = jump_force
 		current_state = State.JUMP
 		anim_player.play("jump")
+		Audio.tocar_sfx("pulo", 0.05)
 		return
 
 	var direction = Input.get_axis(player_prefix + "left", player_prefix + "right")
@@ -150,6 +156,11 @@ func execute_attack(attack_type: String):
 func on_hitbox_connected(enemy, is_finisher: bool, attack_type: String):
 	add_special_meter(base_special_gain) 
 	
+	if is_finisher:
+		Audio.tocar_sfx("finalizador", 0.05)
+	else:
+		Audio.tocar_sfx("chute" if attack_type == "kick" else "soco", 0.1)
+
 	var damage = base_damage * (1.2 if is_finisher else 1.0) # Multiplicador de 1.2x no finalizador[cite: 1]
 	var knockback_force = Vector2.ZERO
 	
@@ -177,13 +188,18 @@ func take_damage(amount: float, knockback: Vector2):
 	var final_damage = amount * 0.25 if blocked else amount
 	
 	health -= final_damage
+	vida_mudou.emit(health, max_health)
 	add_special_meter(base_special_gain * 1.1) # Barra enche 1,1x mais rápido ao apanhar[cite: 1]
-	
+
 	if health <= 0:
 		current_state = State.DEAD
 		anim_player.play("die")
+		Audio.tocar_sfx("derrota")
 		derrotado.emit(self)
 		return
+
+	if blocked:
+		Audio.tocar_sfx("bloqueio", 0.05)
 
 	is_invincible = true
 	
@@ -210,15 +226,21 @@ func numero_jogador() -> int:
 	return 2 if player_prefix == "p2_" else 1
 
 func add_special_meter(amount: float):
+	var estava_cheio := special_meter >= max_special
 	special_meter = clamp(special_meter + amount, 0.0, max_special)
+	especial_mudou.emit(special_meter, max_special)
+	if special_meter >= max_special and not estava_cheio:
+		Audio.tocar_sfx("especial_pronto")
 
 func _on_combo_timer_timeout():
 	combo_step = 0
 
 func execute_special():
 	special_meter = 0.0
+	especial_mudou.emit(special_meter, max_special)
 	current_state = State.ATTACK
 	anim_player.play("special")
+	Audio.tocar_sfx("especial")
 	spawn_projectile()
 	await anim_player.animation_finished
 	if current_state not in [State.HIT, State.AIR_HIT, State.DEAD]:

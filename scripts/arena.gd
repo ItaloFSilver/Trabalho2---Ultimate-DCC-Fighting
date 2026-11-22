@@ -7,6 +7,7 @@ extends Node
 ## (o "K.O.") e depois vai para a tela de fim de luta, informando quem perdeu.
 
 const CENA_FIM := "res://scenes/ui/fim_luta.tscn"
+const MUSICA_ARENA := "res://assets/sons/trilha_sonora.mp3"
 
 ## Personagens usados quando a luta é aberta direto (F6), sem passar pela seleção.
 @export var personagem_teste_p1 := "gleiph"
@@ -37,6 +38,13 @@ func _ready() -> void:
 	lutador_p1.derrotado.connect(_on_lutador_derrotado)
 	lutador_p2.derrotado.connect(_on_lutador_derrotado)
 
+	# HUD (precisa vir depois de add_child: os lutadores já estão prontos)
+	var hud := HudCombate.new()
+	add_child(hud)
+	hud.configurar(lutador_p1, lutador_p2)
+
+	Audio.tocar_musica(MUSICA_ARENA)
+
 
 func _criar_lutador(id: String, jogador: int, spawn: Marker2D) -> FighterBase:
 	var cena: PackedScene = Partida.CENAS_PERSONAGENS.get(id)
@@ -55,6 +63,8 @@ func _on_lutador_derrotado(perdedor: FighterBase) -> void:
 		return  # se os dois caírem juntos, vale quem caiu primeiro
 	_luta_encerrada = true
 	Partida.registrar_derrota(perdedor.numero_jogador())
+	Audio.tocar_sfx("ko")
+	Audio.parar_musica(1.0)
 
 	Engine.time_scale = camera_lenta
 	# timer que ignora a câmera lenta, para durar o mesmo tempo real
