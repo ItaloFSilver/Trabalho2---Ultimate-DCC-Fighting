@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3]
+[gd_scene format=3 uid="uid://b5cj8csgxnbux"]
 
-[ext_resource type="Script" path="res://scripts/ui/menu_principal.gd" id="1_menu"]
-[ext_resource type="Theme" path="res://assets/ui/tema_ui.tres" id="2_tema"]
-[ext_resource type="Texture2D" path="res://assets/ui/menu/fundo_ice.png" id="3_fundo"]
-[ext_resource type="Script" path="res://scripts/ui/botao_com_seta.gd" id="4_botao"]
-[ext_resource type="Texture2D" path="res://assets/ui/seta.png" id="5_seta"]
+[ext_resource type="Script" uid="uid://dv7q41jcen72m" path="res://scripts/ui/menu_principal.gd" id="1_menu"]
+[ext_resource type="Theme" uid="uid://ro03d332gq28" path="res://assets/ui/tema_ui.tres" id="2_tema"]
+[ext_resource type="Texture2D" uid="uid://cflpw55xcprq8" path="res://assets/ui/menu/fundo_ice.png" id="3_fundo"]
+[ext_resource type="Script" uid="uid://cj5kq2h2n15hs" path="res://scripts/ui/botao_com_seta.gd" id="4_botao"]
+[ext_resource type="Texture2D" uid="uid://bngee3kgddu5m" path="res://assets/ui/seta.png" id="5_seta"]
 
 [sub_resource type="Animation" id="Animation_reset"]
 length = 0.001
@@ -44,7 +44,7 @@ _data = {
 &"respirar": SubResource("Animation_respirar")
 }
 
-[node name="MenuPrincipal" type="Control"]
+[node name="MenuPrincipal" type="Control" unique_id=422966300]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -55,7 +55,7 @@ grow_vertical = 2
 theme = ExtResource("2_tema")
 script = ExtResource("1_menu")
 
-[node name="Fundo" type="TextureRect" parent="."]
+[node name="Fundo" type="TextureRect" parent="." unique_id=743755819]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,7 +67,7 @@ texture = ExtResource("3_fundo")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="Titulo" type="VBoxContainer" parent="."]
+[node name="Titulo" type="VBoxContainer" parent="." unique_id=637755410]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -80,19 +80,19 @@ grow_horizontal = 2
 mouse_filter = 2
 theme_override_constants/separation = 13
 
-[node name="Ultimate" type="Label" parent="Titulo"]
+[node name="Ultimate" type="Label" parent="Titulo" unique_id=1053379926]
 layout_mode = 2
 theme_type_variation = &"TituloUltimate"
 text = "ULTIMATE"
 horizontal_alignment = 1
 
-[node name="DCCFighting" type="Label" parent="Titulo"]
+[node name="DCCFighting" type="Label" parent="Titulo" unique_id=980163671]
 layout_mode = 2
 theme_type_variation = &"TituloDCC"
 text = "DCC FIGHTING"
 horizontal_alignment = 1
 
-[node name="Opcoes" type="VBoxContainer" parent="."]
+[node name="Opcoes" type="VBoxContainer" parent="." unique_id=1029335666]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -105,7 +105,7 @@ grow_horizontal = 2
 mouse_filter = 2
 theme_override_constants/separation = -22
 
-[node name="Jogar" type="Button" parent="Opcoes"]
+[node name="Jogar" type="Button" parent="Opcoes" unique_id=304280297]
 layout_mode = 2
 size_flags_horizontal = 4
 focus_neighbor_top = NodePath("../Sair")
@@ -114,7 +114,7 @@ theme_type_variation = &"BotaoMenu"
 text = "JOGAR"
 script = ExtResource("4_botao")
 
-[node name="Seta" type="TextureRect" parent="Opcoes/Jogar"]
+[node name="Seta" type="TextureRect" parent="Opcoes/Jogar" unique_id=184771833]
 visible = false
 layout_mode = 0
 offset_left = -50.0
@@ -125,7 +125,7 @@ mouse_filter = 2
 texture = ExtResource("5_seta")
 expand_mode = 1
 
-[node name="Creditos" type="Button" parent="Opcoes"]
+[node name="Creditos" type="Button" parent="Opcoes" unique_id=1417611581]
 layout_mode = 2
 size_flags_horizontal = 4
 focus_neighbor_top = NodePath("../Jogar")
@@ -134,7 +134,7 @@ theme_type_variation = &"BotaoMenu"
 text = "CRÉDITOS"
 script = ExtResource("4_botao")
 
-[node name="Seta" type="TextureRect" parent="Opcoes/Creditos"]
+[node name="Seta" type="TextureRect" parent="Opcoes/Creditos" unique_id=286816768]
 visible = false
 layout_mode = 0
 offset_left = -50.0
@@ -145,7 +145,7 @@ mouse_filter = 2
 texture = ExtResource("5_seta")
 expand_mode = 1
 
-[node name="Sair" type="Button" parent="Opcoes"]
+[node name="Sair" type="Button" parent="Opcoes" unique_id=2062054106]
 layout_mode = 2
 size_flags_horizontal = 4
 focus_neighbor_top = NodePath("../Creditos")
@@ -154,7 +154,7 @@ theme_type_variation = &"BotaoMenu"
 text = "SAIR"
 script = ExtResource("4_botao")
 
-[node name="Seta" type="TextureRect" parent="Opcoes/Sair"]
+[node name="Seta" type="TextureRect" parent="Opcoes/Sair" unique_id=336872060]
 visible = false
 layout_mode = 0
 offset_left = -50.0
@@ -165,10 +165,8 @@ mouse_filter = 2
 texture = ExtResource("5_seta")
 expand_mode = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_menu")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=691089099]
+libraries/ = SubResource("AnimationLibrary_menu")
 autoplay = &"respirar"
 
 [connection signal="pressed" from="Opcoes/Jogar" to="." method="_on_jogar_pressed"]

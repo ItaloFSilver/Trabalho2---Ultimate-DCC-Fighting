@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GerenciadorCenas="*res://scripts/autoload/gerenciador_cenas.gd"
 Partida="*res://scripts/autoload/partida.gd"
+Audio="*uid://djffp2byx3p3d"
 
 [display]
 
