@@ -51,7 +51,10 @@ func _instanciate_fighters() -> void:
 	if player1 and player2:
 		player1.opponent = player2
 		player2.opponent = player1
-<<<<<<< HEAD
+
+		# Câmera dinâmica
+		camera.player1 = player1
+		camera.player2 = player2
 
 		# HUD de combate
 		var hud := HudCombate.new()
@@ -62,8 +65,3 @@ func _instanciate_fighters() -> void:
 	# Trilha sonora
 	print("MainGame: tocando música -> ", musica_arena)
 	Audio.tocar_musica(musica_arena)
-=======
-		
-	camera.player1 = player1
-	camera.player2 = player2
->>>>>>> 5edacee54e5b63bd9839e61b3a511ade7cc1b08c
