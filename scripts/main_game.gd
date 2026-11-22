@@ -9,6 +9,7 @@ extends Node2D
 
 @onready var spawn_p1: Marker2D = $SpawnP1
 @onready var spawn_p2: Marker2D = $SpawnP2
+@onready var camera: DynamicCamera = $Camera2D
 
 var player1: FighterBase
 var player2: FighterBase
@@ -46,3 +47,6 @@ func _instanciate_fighters() -> void:
 	if player1 and player2:
 		player1.opponent = player2
 		player2.opponent = player1
+		
+	camera.player1 = player1
+	camera.player2 = player2

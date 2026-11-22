@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://cp611mdwd8ac7" path="res://assets/maps/portao_norte_2.jpg" id="9_5cypo"]
 [ext_resource type="Texture2D" uid="uid://dlbmk8rjg7nyd" path="res://assets/maps/portao_norte_4.jpg" id="9_nqdth"]
 [ext_resource type="Texture2D" uid="uid://dqnxi4jgwcih1" path="res://assets/maps/portao_norte_3.jpg" id="10_o6v7o"]
+[ext_resource type="Script" uid="uid://c3vvq87vapks7" path="res://scripts/camera_2d.gd" id="11_5cypo"]
 
 [node name="MainGame" type="Node2D" unique_id=1076878593]
 script = ExtResource("1_0rdsr")
@@ -34,3 +35,12 @@ position = Vector2(480, 500)
 
 [node name="SpawnP2" type="Marker2D" parent="." unique_id=1892849121]
 position = Vector2(896, 500)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1770082310]
+position = Vector2(681, 370)
+limit_left = 30
+limit_top = 27
+limit_right = 1351
+limit_bottom = 714
+script = ExtResource("11_5cypo")
+min_zoom = 1.0
