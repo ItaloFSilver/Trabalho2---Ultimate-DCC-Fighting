@@ -5,7 +5,11 @@ extends Node2D
 	&"gleiph": preload("res://scenes/Gleiph.tscn"),
 	&"knop": preload("res://scenes/Knop.tscn"),
 	&"victor": preload("res://scenes/Stroele.tscn"),
+	&"stroele": preload("res://scenes/Stroele.tscn"),
 }
+
+## Trilha sonora da luta (pode trocar pelo seletor de arquivo no Inspector).
+@export_file("*.mp3", "*.ogg", "*.wav") var musica_arena := "res://assets/sons/lutaPrincipal.mp3"
 
 @onready var spawn_p1: Marker2D = $SpawnP1
 @onready var spawn_p2: Marker2D = $SpawnP2
@@ -46,3 +50,13 @@ func _instanciate_fighters() -> void:
 	if player1 and player2:
 		player1.opponent = player2
 		player2.opponent = player1
+
+		# HUD de combate
+		var hud := HudCombate.new()
+		add_child(hud)
+		hud.configurar(player1, player2)
+		print("MainGame: HUD criado")
+
+	# Trilha sonora
+	print("MainGame: tocando música -> ", musica_arena)
+	Audio.tocar_musica(musica_arena)

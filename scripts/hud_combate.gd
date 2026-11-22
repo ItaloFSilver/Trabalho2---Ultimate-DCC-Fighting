@@ -162,7 +162,47 @@ func _on_especial_mudou(atual: float, maximo: float, numero: int) -> void:
 		barra.modulate = Color.WHITE
 
 
+const SHADER_CINZA := """
+shader_type canvas_item;
+uniform sampler2D tela : hint_screen_texture, filter_linear_mipmap;
+uniform float intensidade : hint_range(0.0, 1.0) = 0.0;
+void fragment() {
+	vec4 c = texture(tela, SCREEN_UV);
+	float g = dot(c.rgb, vec3(0.299, 0.587, 0.114));
+	COLOR = vec4(mix(c.rgb, vec3(g), intensidade), 1.0);
+}
+"""
+
+var _ko_acionado := false
+
+
+## Deixa a tela em preto e branco (o HUD, que fica numa camada acima, continua colorido).
+func _escurecer_tela() -> void:
+	var camada := CanvasLayer.new()
+	camada.layer = layer - 5  # abaixo do HUD
+	var filtro := ColorRect.new()
+	filtro.set_anchors_preset(Control.PRESET_FULL_RECT)
+	filtro.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var shader := Shader.new()
+	shader.code = SHADER_CINZA
+	var material := ShaderMaterial.new()
+	material.shader = shader
+	material.set_shader_parameter("intensidade", 0.0)
+	filtro.material = material
+	camada.add_child(filtro)
+	get_parent().add_child(camada)  # fica na cena de luta e some junto com ela
+
+	var tween := create_tween()
+	tween.tween_property(material, "shader_parameter/intensidade", 1.0, 0.2)
+
+
 func _on_derrotado(_lutador: FighterBase) -> void:
+	if _ko_acionado:
+		return  # os dois caíram juntos: o efeito só acontece uma vez
+	_ko_acionado = true
+	Audio.parar_musica(0.5)
+	_escurecer_tela()
+
 	_label_ko.visible = true
 	_label_ko.scale = Vector2(3, 3)
 	_label_ko.modulate.a = 0.0

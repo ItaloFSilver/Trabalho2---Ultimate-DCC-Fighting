@@ -7,7 +7,9 @@ extends Node
 ## (o "K.O.") e depois vai para a tela de fim de luta, informando quem perdeu.
 
 const CENA_FIM := "res://scenes/ui/fim_luta.tscn"
-const MUSICA_ARENA := "res://assets/sons/trilha_sonora.mp3"
+## Trilha sonora da luta. Pode escolher o arquivo pelo Inspector (seletor de arquivo),
+## sem precisar digitar o caminho.
+@export_file("*.mp3", "*.ogg", "*.wav") var musica_arena := "res://assets/sons/lutaPrincipal.mp3"
 
 ## Personagens usados quando a luta é aberta direto (F6), sem passar pela seleção.
 @export var personagem_teste_p1 := "gleiph"
@@ -42,8 +44,10 @@ func _ready() -> void:
 	var hud := HudCombate.new()
 	add_child(hud)
 	hud.configurar(lutador_p1, lutador_p2)
+	print("Arena: HUD criado")
 
-	Audio.tocar_musica(MUSICA_ARENA)
+	print("Arena: tocando música -> ", musica_arena)
+	Audio.tocar_musica(musica_arena)
 
 
 func _criar_lutador(id: String, jogador: int, spawn: Marker2D) -> FighterBase:
