@@ -1,5 +1,6 @@
 extends TileMap 
 
+@export var first_frame: Texture2D
 @export var second_frame: Texture2D
 @export var third_frame: Texture2D
 @export var frame_time: float
@@ -11,7 +12,7 @@ var _atlas_source: TileSetAtlasSource
 
 
 func _ready() -> void:
-	_frames = [second_frame, third_frame, second_frame]
+	_frames = [first_frame, second_frame, third_frame, second_frame]
 
 	if tile_set and tile_set.get_source_count() > 0:
 		var source_id := tile_set.get_source_id(0)
