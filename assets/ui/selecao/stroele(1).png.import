@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3m3ypyy1cxxc"
-path="res://.godot/imported/stroele.png-89938fe940689f998ede0c8b92e43b4b.ctex"
+uid="uid://4ehr53sl60fd"
+path="res://.godot/imported/stroele(1).png-4cc816b3c1961e33259ca4cddec377a8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/selecao/stroele.png"
-dest_files=["res://.godot/imported/stroele.png-89938fe940689f998ede0c8b92e43b4b.ctex"]
+source_file="res://assets/ui/selecao/stroele(1).png"
+dest_files=["res://.godot/imported/stroele(1).png-4cc816b3c1961e33259ca4cddec377a8.ctex"]
 
 [params]
 

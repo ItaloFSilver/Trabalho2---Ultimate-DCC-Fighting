@@ -9,8 +9,8 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/painel_jogador.tscn" id="7_painel"]
 [ext_resource type="Texture2D" uid="uid://by85emtp1obyc" path="res://assets/ui/selecao/caniato.png" id="r_caniato"]
 [ext_resource type="Texture2D" uid="uid://4cgov0uxrif2" path="res://assets/ui/selecao/gleiph.png" id="r_gleiph"]
-[ext_resource type="Texture2D" path="res://assets/ui/selecao/knop.png" id="r_knop"]
-[ext_resource type="Texture2D" path="res://assets/ui/selecao/stroele.png" id="r_stroele"]
+[ext_resource type="Texture2D" uid="uid://cqjnd6wuya2tp" path="res://assets/ui/selecao/knop.png" id="r_knop"]
+[ext_resource type="Texture2D" uid="uid://d1mg15wcmi3kx" path="res://assets/ui/selecao/stroele.png" id="r_stroele"]
 
 [node name="SelecaoPersonagem" type="Control" unique_id=797644934]
 texture_filter = 1
