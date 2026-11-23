@@ -20,10 +20,10 @@ Todos os personagens compartilham os movimentos básicos (andar, pular, soco e c
 
 | Professor | Especial | Estilo de Golpe |
 | :--- | :--- | :--- |
-| **Caniato** | 🤖 **Ataque Robótico** | Invoca um robô que surge correndo de trás dele e voa em direção ao oponente. |
-| **Stroele** | 🪑 **Cadeirada Brutal** | Um golpe corpo a corpo devastador utilizando um banco/cadeira. |
-| **Knop** | ⚡ **Feixe de Energia** | Dispara um raio contínuo de energia pura (estilo *Kamehameha*). |
-| **Gleiph** | ❓ **Em Desenvolvimento** | Habilidade especial exclusiva em fase de definição. |
+| **Caniato** | 🤖 **Ataque Robótico** | Lança robô que voa em direção ao oponente. |
+| **Stroele** | 🪑 **Cadeirada Brutal** | Arremessa um banco de dados brutal em seu oponente. |
+| **Knop** | ⚡ **Feixe de Energia** | Dispara um /div na tentativa de prender o oponente em uma Position:Fixed. |
+| **Gleiph** | ☕ **Java** | Arremessa uma caneca de café fresquinho da ilha Java. |
 
 ---
 
@@ -32,7 +32,6 @@ Todos os personagens compartilham os movimentos básicos (andar, pular, soco e c
 * **Sistema de Combos (Janela de `0.35s`):** Acertar golpes em sequência permite encadear finalizadores com multiplicador de **1.2x de dano**:
   * `Soco > Soco > Soco`: Sequência rápida com dano focado no último golpe.
   * `Soco > Soco > Chute`: Controle de espaço que aplica *knockback* e afasta o adversário.
-  * `Soco > Soco > Baixo + Soco`: **Uppercut (Launcher)** que lança ambos os lutadores ao ar, permitindo um ataque aéreo adicional.
 * **Barra de Especial (Meter):** Enche progressivamente durante a luta e libera o ataque especial ao atingir **100%**. Para equilibrar a disputa, o lutador que recebe dano carrega a barra **1,1x (10%) mais rápido** do que quem está batendo.
 
 ---
