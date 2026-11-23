@@ -12,9 +12,18 @@ signal transicao_terminada
 
 const DURACAO_FADE := 0.25
 
-## Cena -> música. AJUSTE os caminhos para os das suas cenas e arquivos.
+## Música das telas de menu (menu inicial, instruções, créditos e seleção).
+const MUSICA_MENU := "res://assets/sons/trilha_sonora.mp3"
+## Volume da música dos menus, em decibéis (dB). 0 = volume original do arquivo;
+## valores negativos abaixam: -6 ≈ metade da força, -10 ≈ bem mais baixo, -20 ≈ fundo.
+const VOLUME_MUSICA_MENU_DB := -20.0
+
+## Cena -> música. Ao trocar entre telas com a mesma música, ela continua sem reiniciar.
 const MUSICAS_POR_CENA := {
-	"res://scenes/ui/selecao_personagem.tscn": "res://assets/sons/trilha_sonora.mp3",
+	"res://scenes/ui/menu_principal.tscn": MUSICA_MENU,
+	"res://scenes/ui/instrucoes.tscn": MUSICA_MENU,
+	"res://scenes/ui/creditos.tscn": MUSICA_MENU,
+	"res://scenes/ui/selecao_personagem.tscn": MUSICA_MENU,
 }
 
 var em_transicao := false
@@ -46,8 +55,8 @@ func trocar_cena(caminho: String) -> void:
 	var erro := get_tree().change_scene_to_file(caminho)
 	if erro != OK:
 		push_error("GerenciadorCenas: não foi possível abrir '%s' (erro %d)" % [caminho, erro])
-	elif MUSICAS_POR_CENA.has(caminho):
-		Audio.tocar_musica(MUSICAS_POR_CENA[caminho])
+	else:
+		tocar_musica_da_cena(caminho)
 	await get_tree().process_frame  # a troca de cena acontece no fim do quadro
 
 	fade = create_tween()
@@ -57,3 +66,11 @@ func trocar_cena(caminho: String) -> void:
 	_cortina.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	em_transicao = false
 	transicao_terminada.emit()
+
+
+
+## Toca a música associada à cena (se houver). O menu chama isto ao abrir o jogo,
+## porque a primeira cena é aberta pela Godot, sem passar por trocar_cena().
+func tocar_musica_da_cena(caminho: String) -> void:
+	if MUSICAS_POR_CENA.has(caminho):
+		Audio.tocar_musica(MUSICAS_POR_CENA[caminho], 0.8, VOLUME_MUSICA_MENU_DB)

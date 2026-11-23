@@ -127,16 +127,18 @@ im = Image.fromarray(np.clip(img, 0, 255).astype(np.uint8))
 im = im.quantize(colors=32, method=Image.MEDIANCUT, dither=Image.NONE).convert('RGB')
 q = np.asarray(im).astype(float)
 QUENTE, QUENTE2, CAIXILHO = (242,198,96), (205,150,64), (40,28,24)
-def vidraca(x0, y0, x1, y1, passo):
-    """Vidro aceso com caixilhos (coordenadas na tela 320x180)."""
+def vidraca(x0, y0, x1, y1, passo, travessas=True):
+    """Vidro aceso com caixilhos (coordenadas na tela 320x180).
+    travessas=False tira as barras horizontais (em janela pequena elas viram um "=")."""
     for y in range(y0, y1):
         for x in range(x0, x1):
             borda = x == x0 or x == x1-1 or y == y0 or y == y1-1
-            caix = (x - x0) % passo == 0 or y in (y0 + (y1-y0)//3, y0 + 2*(y1-y0)//3)
+            horiz = travessas and y in (y0 + (y1-y0)//3, y0 + 2*(y1-y0)//3)
+            caix = (x - x0) % passo == 0 or horiz
             q[y, x] = CAIXILHO if (borda or caix) else (QUENTE if y < y0 + (y1-y0)//3 or (x+y) % 7 else QUENTE2)
 vidraca(136, 129, 150, 160, 5)      # guarita (vidro esquerdo)
 vidraca(156, 128, 178, 160, 6)      # porta de vidro
-vidraca(81, 145, 88, 151, 7)        # guarita pequena à esquerda
+vidraca(81, 145, 88, 151, 99, travessas=False)  # guarita pequena à esquerda
 # painel com o brasão da UFJF (desenhado à mão)
 CREME, CREME2, VINHO = (214,198,160), (178,160,124), (92,30,36)
 for y in range(108, 128):

@@ -5,8 +5,12 @@
 [ext_resource type="Texture2D" uid="uid://cflpw55xcprq8" path="res://assets/ui/menu/fundo_ice.png" id="3_fundo"]
 [ext_resource type="Script" uid="uid://cj5kq2h2n15hs" path="res://scripts/ui/botao_com_seta.gd" id="4_botao"]
 [ext_resource type="Texture2D" uid="uid://bngee3kgddu5m" path="res://assets/ui/seta.png" id="5_seta"]
+[ext_resource type="Texture2D" uid="uid://cdbqymr5epsuq" path="res://assets/ui/creditos/arthur_1.png" id="arthur_1"]
+[ext_resource type="Texture2D" uid="uid://ctmjruatq3o2m" path="res://assets/ui/creditos/gustavo_1.png" id="gustavo_1"]
+[ext_resource type="Texture2D" uid="uid://cfcve3c4j8cyw" path="res://assets/ui/creditos/italo_1.png" id="italo_1"]
+[ext_resource type="Texture2D" uid="uid://ba70hv2ypd2nn" path="res://assets/ui/creditos/nina_1.png" id="nina_1"]
 
-[node name="Creditos" type="Control" unique_id=1973730677]
+[node name="Creditos" type="Control" unique_id=1858987549]
 texture_filter = 1
 layout_mode = 3
 anchors_preset = 15
@@ -17,7 +21,7 @@ grow_vertical = 2
 theme = ExtResource("2_tema")
 script = ExtResource("1_creditos")
 
-[node name="Fundo" type="TextureRect" parent="." unique_id=1295797436]
+[node name="Fundo" type="TextureRect" parent="." unique_id=1350241169]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,7 +33,7 @@ texture = ExtResource("3_fundo")
 expand_mode = 1
 stretch_mode = 6
 
-[node name="Escurecer" type="ColorRect" parent="." unique_id=1461319203]
+[node name="Escurecer" type="ColorRect" parent="." unique_id=908681628]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -39,116 +43,217 @@ grow_vertical = 2
 mouse_filter = 2
 color = Color(0.024, 0.02, 0.063, 0.59)
 
-[node name="Titulo" type="Label" parent="." unique_id=1742871728]
+[node name="Titulo" type="Label" parent="." unique_id=453399825]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -400.0
-offset_top = 6.0
+offset_top = 8.0
 offset_right = 400.0
-offset_bottom = 118.0
+offset_bottom = 88.0
 grow_horizontal = 2
 theme_type_variation = &"TituloTela"
+theme_override_font_sizes/font_size = 80
 text = "CRÉDITOS"
 horizontal_alignment = 1
 
-[node name="Caixa" type="PanelContainer" parent="." unique_id=686920874]
+[node name="Desenvolvimento" type="VBoxContainer" parent="." unique_id=522904988]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -533.0
-offset_top = 122.0
-offset_right = 533.0
-offset_bottom = 576.0
+offset_left = -520.0
+offset_top = 92.0
+offset_right = 520.0
+offset_bottom = 400.0
 grow_horizontal = 2
 mouse_filter = 2
-theme_type_variation = &"PainelCreditos"
+theme_override_constants/separation = 10
 
-[node name="Margem" type="MarginContainer" parent="Caixa" unique_id=1130435828]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 20
-
-[node name="Conteudo" type="VBoxContainer" parent="Caixa/Margem" unique_id=1751430765]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/separation = 36
-alignment = 1
-
-[node name="Colunas" type="HBoxContainer" parent="Caixa/Margem/Conteudo" unique_id=1292074469]
-layout_mode = 2
-mouse_filter = 2
-theme_override_constants/separation = 0
-
-[node name="Desenvolvimento" type="VBoxContainer" parent="Caixa/Margem/Conteudo/Colunas" unique_id=985564622]
-layout_mode = 2
-size_flags_horizontal = 3
-mouse_filter = 2
-theme_override_constants/separation = 6
-
-[node name="Cabecalho" type="Label" parent="Caixa/Margem/Conteudo/Colunas/Desenvolvimento" unique_id=811658181]
+[node name="Cabecalho" type="Label" parent="Desenvolvimento" unique_id=2049835908]
 layout_mode = 2
 theme_type_variation = &"Cabecalho"
 text = "DESENVOLVIMENTO"
 horizontal_alignment = 1
 
-[node name="Nomes" type="Label" parent="Caixa/Margem/Conteudo/Colunas/Desenvolvimento" unique_id=122882706]
-layout_mode = 2
-theme_type_variation = &"Nomes"
-text = "Gustavo Bersan
-Nina Aguiar
-Ítalo Fagundes
-Arthur Marques"
-horizontal_alignment = 1
-
-[node name="Separador" type="VSeparator" parent="Caixa/Margem/Conteudo/Colunas" unique_id=1902725369]
+[node name="Equipe" type="HBoxContainer" parent="Desenvolvimento" unique_id=793513890]
 layout_mode = 2
 mouse_filter = 2
+theme_override_constants/separation = 120
+alignment = 1
 
-[node name="Agradecimentos" type="VBoxContainer" parent="Caixa/Margem/Conteudo/Colunas" unique_id=611765714]
+[node name="Nina" type="VBoxContainer" parent="Desenvolvimento/Equipe" unique_id=1428060312]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+alignment = 2
+
+[node name="Sprite" type="TextureRect" parent="Desenvolvimento/Equipe/Nina" unique_id=2039641973]
+custom_minimum_size = Vector2(96, 183)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("nina_1")
+expand_mode = 1
+
+[node name="Nome" type="Label" parent="Desenvolvimento/Equipe/Nina" unique_id=728748737]
+layout_mode = 2
+theme_type_variation = &"NomeCarta"
+text = "Nina"
+horizontal_alignment = 1
+
+[node name="Gustavo" type="VBoxContainer" parent="Desenvolvimento/Equipe" unique_id=1180732507]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+alignment = 2
+
+[node name="Sprite" type="TextureRect" parent="Desenvolvimento/Equipe/Gustavo" unique_id=1527131705]
+custom_minimum_size = Vector2(85, 181)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("gustavo_1")
+expand_mode = 1
+
+[node name="Nome" type="Label" parent="Desenvolvimento/Equipe/Gustavo" unique_id=1548539103]
+layout_mode = 2
+theme_type_variation = &"NomeCarta"
+text = "Gustavo"
+horizontal_alignment = 1
+
+[node name="Italo" type="VBoxContainer" parent="Desenvolvimento/Equipe" unique_id=480322675]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+alignment = 2
+
+[node name="Sprite" type="TextureRect" parent="Desenvolvimento/Equipe/Italo" unique_id=527134500]
+custom_minimum_size = Vector2(91, 181)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("italo_1")
+expand_mode = 1
+
+[node name="Nome" type="Label" parent="Desenvolvimento/Equipe/Italo" unique_id=1467014118]
+layout_mode = 2
+theme_type_variation = &"NomeCarta"
+text = "Ítalo"
+horizontal_alignment = 1
+
+[node name="Arthur" type="VBoxContainer" parent="Desenvolvimento/Equipe" unique_id=48408518]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 6
+alignment = 2
+
+[node name="Sprite" type="TextureRect" parent="Desenvolvimento/Equipe/Arthur" unique_id=1052959767]
+custom_minimum_size = Vector2(94, 180)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_filter = 2
+texture = ExtResource("arthur_1")
+expand_mode = 1
+
+[node name="Nome" type="Label" parent="Desenvolvimento/Equipe/Arthur" unique_id=1665942475]
+layout_mode = 2
+theme_type_variation = &"NomeCarta"
+text = "Arthur"
+horizontal_alignment = 1
+
+[node name="Caixa" type="PanelContainer" parent="." unique_id=1336990508]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -444.0
+offset_top = 404.0
+offset_right = 443.0
+offset_bottom = 590.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_type_variation = &"PainelCreditos"
+
+[node name="Margem" type="MarginContainer" parent="Caixa" unique_id=1570193462]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 12
+
+[node name="Colunas" type="HBoxContainer" parent="Caixa/Margem" unique_id=1000287765]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 0
+
+[node name="Agradecimentos" type="VBoxContainer" parent="Caixa/Margem/Colunas" unique_id=1091471413]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
-theme_override_constants/separation = 6
+theme_override_constants/separation = 8
 
-[node name="Cabecalho" type="Label" parent="Caixa/Margem/Conteudo/Colunas/Agradecimentos" unique_id=50844574]
+[node name="Cabecalho" type="Label" parent="Caixa/Margem/Colunas/Agradecimentos" unique_id=1068743955]
 layout_mode = 2
 theme_type_variation = &"Cabecalho"
 text = "AGRADECIMENTOS"
 horizontal_alignment = 1
 
-[node name="Nomes" type="Label" parent="Caixa/Margem/Conteudo/Colunas/Agradecimentos" unique_id=1346800016]
+[node name="Professores" type="GridContainer" parent="Caixa/Margem/Colunas/Agradecimentos" unique_id=1332305286]
 layout_mode = 2
-theme_type_variation = &"Nomes"
-text = "Prof. Caniato
-Prof. Gleiph
-Prof. Victor
-Prof. Igor"
-horizontal_alignment = 1
+size_flags_horizontal = 4
+mouse_filter = 2
+theme_override_constants/h_separation = 32
+theme_override_constants/v_separation = 4
+columns = 2
 
-[node name="Recursos" type="VBoxContainer" parent="Caixa/Margem/Conteudo" unique_id=1737829895]
+[node name="ProfCaniato" type="Label" parent="Caixa/Margem/Colunas/Agradecimentos/Professores" unique_id=1643008219]
+layout_mode = 2
+theme_type_variation = &"Acao"
+text = "Prof. Caniato"
+
+[node name="ProfGleiph" type="Label" parent="Caixa/Margem/Colunas/Agradecimentos/Professores" unique_id=595869725]
+layout_mode = 2
+theme_type_variation = &"Acao"
+text = "Prof. Gleiph"
+
+[node name="ProfVictor" type="Label" parent="Caixa/Margem/Colunas/Agradecimentos/Professores" unique_id=321158782]
+layout_mode = 2
+theme_type_variation = &"Acao"
+text = "Prof. Victor"
+
+[node name="ProfIgor" type="Label" parent="Caixa/Margem/Colunas/Agradecimentos/Professores" unique_id=315210427]
+layout_mode = 2
+theme_type_variation = &"Acao"
+text = "Prof. Igor"
+
+[node name="Separador" type="VSeparator" parent="Caixa/Margem/Colunas" unique_id=1481036784]
 layout_mode = 2
 mouse_filter = 2
-theme_override_constants/separation = 6
 
-[node name="Cabecalho" type="Label" parent="Caixa/Margem/Conteudo/Recursos" unique_id=348388384]
+[node name="Recursos" type="VBoxContainer" parent="Caixa/Margem/Colunas" unique_id=151640175]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="Cabecalho" type="Label" parent="Caixa/Margem/Colunas/Recursos" unique_id=1429808646]
 layout_mode = 2
 theme_type_variation = &"Cabecalho"
-text = "RECURSOS DE TERCEIROS"
+text = "RECURSOS"
 horizontal_alignment = 1
 
-[node name="Nomes" type="Label" parent="Caixa/Margem/Conteudo/Recursos" unique_id=1123461206]
+[node name="Lista" type="Label" parent="Caixa/Margem/Colunas/Recursos" unique_id=1918050266]
 layout_mode = 2
-theme_type_variation = &"Nomes"
-text = "Efeitos sonoros: Pixabay"
+theme_type_variation = &"Acao"
+theme_override_constants/line_spacing = 4
+text = "Fonte Pixel Operator (CC0)
+Efeitos sonoros: Pixabay"
 horizontal_alignment = 1
 
-[node name="Voltar" type="Button" parent="." unique_id=344815604]
+[node name="Voltar" type="Button" parent="." unique_id=570969428]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
@@ -165,7 +270,7 @@ theme_type_variation = &"BotaoPequeno"
 text = "VOLTAR"
 script = ExtResource("4_botao")
 
-[node name="Seta" type="TextureRect" parent="Voltar" unique_id=326331433]
+[node name="Seta" type="TextureRect" parent="Voltar" unique_id=1648028061]
 visible = false
 layout_mode = 0
 offset_left = -24.0

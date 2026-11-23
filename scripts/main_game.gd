@@ -16,6 +16,8 @@ const CENA_FIM := "res://scenes/ui/fim_luta.tscn"
 @export_range(0.05, 1.0) var camera_lenta := 0.35
 ## Trilha sonora da luta (pode trocar pelo seletor de arquivo no Inspector).
 @export_file("*.mp3", "*.ogg", "*.wav") var musica_arena := "res://assets/sons/lutaPrincipal.mp3"
+## Volume da música da luta em decibéis (0 = original; -6 ≈ metade; -20 ≈ bem baixo).
+@export_range(-40.0, 6.0, 0.5, "suffix:dB") var volume_musica_db := 0.0
 
 @onready var spawn_p1: Marker2D = $SpawnP1
 @onready var spawn_p2: Marker2D = $SpawnP2
@@ -70,7 +72,7 @@ func _instanciate_fighters() -> void:
 
 	# Trilha sonora
 	print("MainGame: tocando música -> ", musica_arena)
-	Audio.tocar_musica(musica_arena)
+	Audio.tocar_musica(musica_arena, 0.8, volume_musica_db)
 		
 	camera.player1 = player1
 	camera.player2 = player2

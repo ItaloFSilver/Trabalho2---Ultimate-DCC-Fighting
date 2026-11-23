@@ -15,6 +15,8 @@ var _escolheu := false
 
 func _ready() -> void:
 	botoes[0].grab_focus()
+	# ao abrir o jogo, o menu é a primeira cena: começa a música dos menus aqui
+	GerenciadorCenas.tocar_musica_da_cena(scene_file_path)
 
 
 func _unhandled_input(event: InputEvent) -> void:
