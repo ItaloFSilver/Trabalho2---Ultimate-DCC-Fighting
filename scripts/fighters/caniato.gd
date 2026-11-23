@@ -10,4 +10,4 @@ func _ready():
 	special_damage = 25.0
 	
 	health = max_health
-	super._ready() # Mantém a inicialização do ComboTimer da classe pai
+	super._ready() 

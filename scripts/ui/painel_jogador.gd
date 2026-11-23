@@ -31,7 +31,6 @@ func mostrar(carta: CartaPersonagem, pronto: bool) -> void:
 		retrato.texture = carta.retrato
 		retrato.custom_minimum_size = carta.retrato.get_size() * ESCALA_RETRATO
 		nome.text = carta.nome_exibido
-	# prévia meio transparente enquanto o jogador ainda está escolhendo
 	retrato.modulate.a = 1.0 if pronto else 0.6
 	nome.theme_type_variation = &"NomePersonagem" if pronto else &"NomePrevia"
 	status.text = "PRONTO!" if pronto else "escolhendo..."

@@ -1,23 +1,19 @@
 extends CharacterBody2D
 class_name FighterBase
 
-## Emitido uma vez, quando a vida chega a zero. A arena usa para encerrar a luta.
 signal derrotado(lutador: FighterBase)
-## Emitidos quando vida/especial mudam. O HUD escuta esses sinais.
 signal vida_mudou(atual: float, maximo: float)
 signal especial_mudou(atual: float, maximo: float)
 
-# Identificação e Referência do Oponente
-@export var player_prefix: String = "p1_" # Use "p1_" para Player 1 e "p2_" para Player 2
-@export var opponent: Node2D # Arraste o oponente no Inspector ou atribua via código na Arena
+@export var player_prefix: String = "p1_"
+@export var opponent: Node2D
 
-# Atributos base (balanceáveis individualmente em cada professor)[cite: 1]
 @export var max_health: float = 100.0
 @export var speed: float = 200.0
 @export var jump_force: float = -600.0
-@export var gravity: float = 980.0 # Atributo próprio para ajustar o peso/queda de cada lutador
+@export var gravity: float = 980.0
 @export var base_damage: float = 10.0
-@export var hit_cooldown: float = 0.3 # Tempo de atordoamento/cooldown ao levar um golpe
+@export var hit_cooldown: float = 0.3 
 
 # Especial (Projétil)
 @export var projectile_scene: PackedScene
@@ -163,7 +159,7 @@ func on_hitbox_connected(enemy, is_finisher: bool, attack_type: String):
 	else:
 		Audio.tocar_sfx("chute" if attack_type == "kick" else "soco", 0.1)
 
-	var damage = base_damage * (1.2 if is_finisher else 1.0) # Multiplicador de 1.2x no finalizador[cite: 1]
+	var damage = base_damage * (1.2 if is_finisher else 1.0) 
 	var knockback_force = Vector2.ZERO
 	
 	if is_finisher and attack_type == "kick":
@@ -191,7 +187,7 @@ func take_damage(amount: float, knockback: Vector2):
 	
 	health -= final_damage
 	vida_mudou.emit(health, max_health)
-	add_special_meter(base_special_gain * 1.1) # Barra enche 1,1x mais rápido ao apanhar[cite: 1]
+	add_special_meter(base_special_gain * 1.1)
 
 	if health <= 0:
 		current_state = State.DEAD

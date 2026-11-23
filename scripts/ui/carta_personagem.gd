@@ -1,9 +1,6 @@
 @tool
 class_name CartaPersonagem
 extends Button
-## Carta de um personagem na seleção. Configure no Inspetor:
-## id do personagem (usado pela luta), nome exibido e retrato.
-## Com @tool, o retrato e o nome já aparecem no editor.
 
 const ESCALA_RETRATO := 4      ## retratos são pixel art pequena; ampliação inteira
 const BASE_RETRATO := 140.0    ## altura (y) onde ficam os pés do personagem

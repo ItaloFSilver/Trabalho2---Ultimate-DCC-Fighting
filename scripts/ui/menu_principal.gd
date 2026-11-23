@@ -1,9 +1,4 @@
 extends Control
-## Menu inicial do Ultimate DCC Fighting: Jogar, Instruções, Créditos e Sair.
-## Layout, cores e fontes ficam na cena e no tema (assets/ui/tema_ui.tres);
-## os sinais "pressed" dos botões estão conectados pelo editor (aba Nó > Sinais).
-
-## Cena aberta por "Jogar": a seleção de personagem.
 const CENA_JOGAR := "res://scenes/ui/selecao_personagem.tscn"
 const CENA_INSTRUCOES := "res://scenes/ui/instrucoes.tscn"
 const CENA_CREDITOS := "res://scenes/ui/creditos.tscn"
@@ -15,13 +10,10 @@ var _escolheu := false
 
 func _ready() -> void:
 	botoes[0].grab_focus()
-	# ao abrir o jogo, o menu é a primeira cena: começa a música dos menus aqui
 	GerenciadorCenas.tocar_musica_da_cena(scene_file_path)
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	# Setas e Enter/Espaço já funcionam pelo foco da Godot (ui_up/ui_down/ui_accept).
-	# Aqui só acrescentamos W/S, que no projeto são p1_up/p1_down.
 	if _escolheu:
 		return
 	if event.is_action_pressed("p1_up"):
