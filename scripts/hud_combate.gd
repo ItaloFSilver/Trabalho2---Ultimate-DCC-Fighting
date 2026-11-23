@@ -184,12 +184,12 @@ func _criar_lado(raiz: Control, lutador: FighterBase, numero: int) -> void:
 
 	# Barra fantasma (amarela), por baixo da barra de vida
 	var fantasma := ProgressBar.new()
-	_estilizar_barra(fantasma, COR_FANTASMA, ALTURA_VIDA, lutador.max_health, !esquerda)
+	_estilizar_barra(fantasma, COR_FANTASMA, LARGURA_BARRA, ALTURA_VIDA, lutador.max_health, !esquerda)
 	fantasma.position = Vector2(0, MARGEM)
 	lado.add_child(fantasma)
 
 	var vida := ProgressBar.new()
-	_estilizar_barra(vida, COR_VIDA, ALTURA_VIDA, lutador.max_health, !esquerda)
+	_estilizar_barra(vida, COR_VIDA, LARGURA_BARRA, ALTURA_VIDA, lutador.max_health, !esquerda)
 	vida.position = Vector2(0, MARGEM)
 	lado.add_child(vida)
 
@@ -202,10 +202,7 @@ func _criar_lado(raiz: Control, lutador: FighterBase, numero: int) -> void:
 	_moldura(lado, Vector2(x_esp - 4, y_esp - 4), Vector2(largura_esp + 8, ALTURA_ESPECIAL + 8), 2)
 
 	var especial := ProgressBar.new()
-	# a largura vai direto no _estilizar_barra: mudar o custom_minimum_size depois não
-	# encolhe a barra na hora (a Godot atualiza o tamanho mínimo depois), e ela ficava
-	# com a largura da barra de vida, passando para fora da tela no lado do P2
-	_estilizar_barra(especial, COR_ESPECIAL, ALTURA_ESPECIAL, lutador.max_special, esp_na_direita, largura_esp)
+	_estilizar_barra(especial, COR_ESPECIAL, largura_esp, ALTURA_ESPECIAL, lutador.max_special, esp_na_direita)
 	especial.position = Vector2(x_esp, y_esp)
 	lado.add_child(especial)
 
@@ -229,13 +226,14 @@ func _criar_lado(raiz: Control, lutador: FighterBase, numero: int) -> void:
 	lutador.derrotado.connect(_on_derrotado)
 
 
-func _estilizar_barra(barra: ProgressBar, cor: Color, altura: float, maximo: float, invertida: bool, largura := LARGURA_BARRA) -> void:
+func _estilizar_barra(barra: ProgressBar, cor: Color, largura: float, altura: float, maximo: float, invertida: bool) -> void:
 	barra.show_percentage = false
 	barra.min_value = 0.0
 	barra.max_value = maximo
 	barra.value = maximo
 	barra.custom_minimum_size = Vector2(largura, altura)
 	barra.size = Vector2(largura, altura)
+	barra.clip_contents = true  # nada do preenchimento passa da área da barra
 	barra.fill_mode = ProgressBar.FILL_END_TO_BEGIN if invertida else ProgressBar.FILL_BEGIN_TO_END
 	var preenchimento := StyleBoxFlat.new()
 	preenchimento.bg_color = cor
@@ -271,19 +269,16 @@ func _on_vida_mudou(atual: float, maximo: float, numero: int) -> void:
 
 func _on_especial_mudou(atual: float, maximo: float, numero: int) -> void:
 	var barra: ProgressBar = _lados[numero]["especial"]
-	barra.value = atual
-	var cheio := atual >= maximo
-	(barra.get_theme_stylebox("fill") as StyleBoxFlat).bg_color = COR_ESPECIAL_CHEIO if cheio else COR_ESPECIAL
+	# trava no máximo: mesmo que o valor passe de 100, a barra nunca passa de cheia
+	var valor := clampf(atual, 0.0, maximo)
+	barra.value = valor
+	var cheio := valor >= maximo
+	# cheia = dourada e parada (sem piscar); o tween antigo, se existir, é descartado
 	if _tween_especial.has(numero) and _tween_especial[numero]:
 		_tween_especial[numero].kill()
-	if cheio:
-		# pisca para avisar que o especial está pronto
-		var tween := create_tween().set_loops()
-		tween.tween_property(barra, "modulate", Color(1.6, 1.6, 1.6), 0.25)
-		tween.tween_property(barra, "modulate", Color.WHITE, 0.25)
-		_tween_especial[numero] = tween
-	else:
-		barra.modulate = Color.WHITE
+		_tween_especial.erase(numero)
+	barra.modulate = Color.WHITE
+	(barra.get_theme_stylebox("fill") as StyleBoxFlat).bg_color = COR_ESPECIAL_CHEIO if cheio else COR_ESPECIAL
 
 
 # ---------- K.O. ----------
