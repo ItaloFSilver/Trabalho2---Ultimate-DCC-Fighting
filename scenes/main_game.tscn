@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://bd5yrsumjxjdu" path="res://scenes/tile_map.tscn" id="3_d2op2"]
 [ext_resource type="PackedScene" uid="uid://c7enl2vc0biw0" path="res://scenes/Stroele.tscn" id="5_2l77h"]
 [ext_resource type="Script" uid="uid://dt5hbk5regy21" path="res://scripts/tile_map.gd" id="7_wi4c7"]
+[ext_resource type="Texture2D" uid="uid://bmsysm6xyopy" path="res://assets/maps/portao_norte_1.jpg" id="8_nqdth"]
 [ext_resource type="Texture2D" uid="uid://cp611mdwd8ac7" path="res://assets/maps/portao_norte_2.jpg" id="9_5cypo"]
-[ext_resource type="Texture2D" uid="uid://dlbmk8rjg7nyd" path="res://assets/maps/portao_norte_4.jpg" id="9_nqdth"]
 [ext_resource type="Texture2D" uid="uid://dqnxi4jgwcih1" path="res://assets/maps/portao_norte_3.jpg" id="10_o6v7o"]
 [ext_resource type="Script" uid="uid://c3vvq87vapks7" path="res://scripts/camera_2d.gd" id="11_5cypo"]
 
@@ -25,8 +25,8 @@ fighters_scenes = {
 z_index = -1
 position = Vector2(0, 736)
 script = ExtResource("7_wi4c7")
-first_frame = ExtResource("9_5cypo")
-second_frame = ExtResource("9_nqdth")
+first_frame = ExtResource("8_nqdth")
+second_frame = ExtResource("9_5cypo")
 third_frame = ExtResource("10_o6v7o")
 frame_time = 0.25
 

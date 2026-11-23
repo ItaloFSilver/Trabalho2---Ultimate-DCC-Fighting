@@ -5,16 +5,17 @@ extends Node2D
 	&"gleiph": preload("res://scenes/Gleiph.tscn"),
 	&"knop": preload("res://scenes/Knop.tscn"),
 	&"victor": preload("res://scenes/Stroele.tscn"),
+	&"stroele": preload("res://scenes/Stroele.tscn"),
 }
 
 ## Fim de luta: cena aberta quando um lutador é derrotado.
 const CENA_FIM := "res://scenes/ui/fim_luta.tscn"
-## Música que toca durante a luta.
-const MUSICA_ARENA := "res://assets/sons/trilha_sonora.mp3"
 ## Quanto tempo (em segundos reais) o K.O. dura antes da troca de tela.
 @export var duracao_ko := 1.5
 ## Velocidade do jogo durante o K.O. (1.0 = normal).
 @export_range(0.05, 1.0) var camera_lenta := 0.35
+## Trilha sonora da luta (pode trocar pelo seletor de arquivo no Inspector).
+@export_file("*.mp3", "*.ogg", "*.wav") var musica_arena := "res://assets/sons/lutaPrincipal.mp3"
 
 @onready var spawn_p1: Marker2D = $SpawnP1
 @onready var spawn_p2: Marker2D = $SpawnP2
@@ -61,12 +62,15 @@ func _instanciate_fighters() -> void:
 		player1.derrotado.connect(_on_lutador_derrotado)
 		player2.derrotado.connect(_on_lutador_derrotado)
 
-		# HUD com vida, especial, nomes e aviso de K.O. (os lutadores já estão na cena)
+		# HUD de combate (vida, especial, nomes e aviso de K.O.)
 		var hud := HudCombate.new()
 		add_child(hud)
 		hud.configurar(player1, player2)
+		print("MainGame: HUD criado")
 
-	Audio.tocar_musica(MUSICA_ARENA)
+	# Trilha sonora
+	print("MainGame: tocando música -> ", musica_arena)
+	Audio.tocar_musica(musica_arena)
 		
 	camera.player1 = player1
 	camera.player2 = player2
